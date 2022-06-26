@@ -562,6 +562,6 @@ To get a color combination that fits ty [Flat Colours](https://flatuicolors.com/
 
 ### Getting Help
 
-If you have issues with the Action Item, you can ask for help in the [Community](https://social.codewithdragos.com/) or in the [Weekly Q&A’s](https://calendar.google.com/calendar/u/0?cid=Y19kbGVoajU1Z2prNXZmYmdoYmxtdDRvN3JyNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t).
+If you have issues with the Action Item, you can ask for help in the [Community](https://community.theseniordev.com/) or in the [Weekly Q&A’s](https://calendar.google.com/calendar/u/0?cid=Y19kbGVoajU1Z2prNXZmYmdoYmxtdDRvN3JyNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t).
 
-### Made with :orange_heart: in Berlin by @CodeWithDragos
+### Made with :orange_heart: in Berlin by @TheSeniorDev
