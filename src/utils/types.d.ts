@@ -39,3 +39,26 @@ export type MovieGenre = {
   id: string;
   name: string;
 };
+
+export type MovieReview = {
+  id: string;
+  author: string;
+  author_details: ReviewAuthorDetails
+  content: string;
+  created_at: string;
+};
+
+export type ReviewAuthorDetails = {
+  id: string;
+  name: string;
+  rating: number;
+  avatar_path: string;
+  username: string
+};
+
+export type ApiResponseReviews = {
+  results: MovieReview[];
+  page: number;
+  total_results: number;
+  total_pages: number;
+};

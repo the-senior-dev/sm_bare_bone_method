@@ -38,13 +38,18 @@ const SearchButton = styled.button`
     height: 40px;
     display: flex;
     width: 200px;
-    background-color: #34ace0;
-    border-color: #34ace0;
+    background-color: #0984e3;
+    border-color: #0984e3;
     color: white;
     font-weight: 700;
     font-size: 1.2rem;
     justify-content: center;
     align-items: center;
+    border-width: 0px;
+    &:hover{
+        background-color: #0984e3;
+        cursor: pointer;
+    }
 `
 
 

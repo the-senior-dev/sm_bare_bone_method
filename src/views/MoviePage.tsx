@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { FullMovie } from '../utils/types'
 import PageContainer from "../components/styled/PageContainer"
 import movieApiClient from '../utils/movieApiClient'
+import MovieReviewList from '../components/movieReviews/MovieReviewList'
 
 export default function MoviePage() {
     const {id} = useParams() as {id: string};
@@ -30,6 +31,7 @@ export default function MoviePage() {
                     <p>Tagline: {movieData?.tagline}</p>
                     <p>Rating: {movieData?.vote_average}</p>
                     <p>Plot: {movieData?.overview}</p>
+                    <MovieReviewList movieId={id}/>
                 </MovieDetailWrapper>
             </div>
             <Link to="/">Go Back</Link>
@@ -38,7 +40,7 @@ export default function MoviePage() {
 }
 
 const MoviePoster = styled.img`
-    width: 50%;
+    width: 30%;
     margin-right: 40px;
     margin-bottom: 40px;
     margin-top: 40px;

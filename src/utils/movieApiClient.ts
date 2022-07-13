@@ -1,4 +1,4 @@
-import { ApiResponse, FullMovie } from "./types";
+import { ApiResponse, ApiResponseReviews, FullMovie, MovieReview } from "./types";
 
 const apiKey = "affc0edf3f789f9357f1d525ba2cdd23"
 const apiToken =
@@ -46,6 +46,21 @@ class ApiClient {
     const data: ApiResponse = await response.json();
     return data;
   }
+
+  async getMovieReview(movieId: string):Promise<MovieReview[]>{
+    const response = await fetch(
+      `${apiUrl}/movie/${movieId}/reviews?api_key=${this.apiKey}`,
+      {
+        headers: {
+          'Content-type': 'application/json'
+        },
+      }
+    );
+    const data:ApiResponseReviews = await response.json();
+    return data.results;
+  }
+
+  
 }
 
 // The Singleton Pattern (Api Client, Db Client)

@@ -6,17 +6,18 @@ import SearchBar from "../components/SearchBar"
 import { Movie} from "../utils/types"
 
 import ApiClient from "../utils/movieApiClient"
+import { useSearchParams } from 'react-router-dom'
 
 export default function MainPage() {
     const [movieList, setMovieList] = useState<Movie[]>([])
-    const [currentPage, setCurrentPage] = useState(1)
-    const [pageTotal, setPageTotal] = useState(1)
-    const [searchText, setSearchText] = useState("Star Wars")
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchText, setSearchText] = useState(searchParams.get("search") || "Star Wars")
+
 
     async function getMovies(){
-        const {total_pages,results } = await ApiClient.getMovieList(searchText, currentPage)
+        setSearchParams({ search: searchText });
+        const {results } = await ApiClient.getMovieList(searchText)
         setMovieList(results)
-        setPageTotal(total_pages)
     }
 
     const onSearchClick = () => {
@@ -25,7 +26,7 @@ export default function MainPage() {
 
     useEffect(() => {
         getMovies()
-    }, [currentPage])
+    }, [])
 
     return (
         <PageContainer>

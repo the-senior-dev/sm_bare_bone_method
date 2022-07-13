@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import moment from "moment"
+import _ from "lodash"
 
 import movieApiClient from "../utils/movieApiClient";
 import { Movie } from "../utils/types";
@@ -10,11 +11,18 @@ interface MovieCardProps {
   movie: Movie;
 }
 
+
 export default function MovieCard({ movie }: MovieCardProps) {
   const navigate = useNavigate();
   const onCardClick = () => {
     navigate(`/movie/${movie.id}`);
   };
+
+  function plotShorten(text:string, length: number = 250){
+    const shortText = _.take(text.split(""), length).join("")
+    return shortText + "..." ;
+  }
+
   return (
     <MovieCardContainer onClick={onCardClick}>
       <div style={{ display: "flex" }}>
@@ -26,7 +34,7 @@ export default function MovieCard({ movie }: MovieCardProps) {
           <MovieTitle>{movie.title}</MovieTitle>
 
           <p>Release Date: {moment(movie.release_date).format("MMM Do YY")}</p>
-          <MoviePlot>Plot: {movie.overview}</MoviePlot>
+          <MoviePlot>Plot: {plotShorten(movie.overview)}</MoviePlot>
         </MovieCardSummary>
       </div>
     </MovieCardContainer>
@@ -46,6 +54,11 @@ const MovieTitle = styled.h2`
 const MoviePlot = styled.p`
   color: #636e72;
   text-decoration: none;
+  height: 100px;
+  overflow: hidden;
+  font-size: 0.8em;
+  // white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 
 const MovieCardContainer = styled.div`
