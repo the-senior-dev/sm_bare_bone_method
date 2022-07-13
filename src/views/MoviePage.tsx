@@ -1,22 +1,51 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
+import { FullMovie } from '../utils/types'
 import PageContainer from "../components/styled/PageContainer"
+import movieApiClient from '../utils/movieApiClient'
 
 export default function MoviePage() {
+    const {id} = useParams() as {id: string};
+
+    const [movieData,setMovieData] = useState<FullMovie | null>();
+
+    useEffect(()=>{
+        movieApiClient.getMovieDetail(id).then((data) => {
+            setMovieData(data)
+        })
+    }, [])
+
     return (
         <PageContainer>
             <div style={{display: "flex"}}>
-                <img src="https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"></img>
-                <div>
-                    <h1>Star Wars</h1>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                </div>
+                {movieData ?
+                    <MoviePoster src={movieApiClient.buildMoviePosterUrl(movieData?.poster_path)}></MoviePoster>
+                    :  
+                    <MoviePoster src={movieApiClient.buildMoviePosterUrl("")}></MoviePoster>
+                }
+                <MovieDetailWrapper>
+                    <h1>{movieData?.title}</h1>
+                    <p>Tagline: {movieData?.tagline}</p>
+                    <p>Rating: {movieData?.vote_average}</p>
+                    <p>Plot: {movieData?.overview}</p>
+                </MovieDetailWrapper>
             </div>
             <Link to="/">Go Back</Link>
         </PageContainer>
     )
 }
+
+const MoviePoster = styled.img`
+    width: 50%;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+`   
+
+const MovieDetailWrapper= styled.div`
+    padding: 20px;
+`
 
 

@@ -4,7 +4,10 @@ import styled from "styled-components"
 export default function Header(){
     return (
         <HeaderContainer>
-            <h2>The Movie App</h2>
+            <HeaderWrapper>
+                <h2>The Movie App</h2>
+
+            </HeaderWrapper>
         </HeaderContainer>
     )
 }
@@ -12,6 +15,14 @@ export default function Header(){
 
 const HeaderContainer = styled.div`
     width: 100%;
-    background-color: black;
+    background-color: #2d3436;
     color: white;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+`
+
+const HeaderWrapper = styled.div`
+    max-width: 1300px;
+    width: 100%;
 `

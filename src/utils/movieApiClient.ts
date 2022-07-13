@@ -1,30 +1,52 @@
-import { ApiResponse } from "./types";
+import { ApiResponse, FullMovie } from "./types";
 
-const apiKey = "91545615"
+const apiKey = "affc0edf3f789f9357f1d525ba2cdd23"
+const apiToken =
+  "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhZmZjMGVkZjNmNzg5ZjkzNTdmMWQ1MjViYTJjZGQyMyIsInN1YiI6IjYyY2U4N2NmYjk3NDQyMDNiYTZiMTUzNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.yRkUq57xsBtbaBUyle1V3X9HpLLfaoI93AYxMX_a6yw";
+const apiUrl = "https://api.themoviedb.org/3";
+class ApiClient {
+  private apiKey: string;
+  public apiUrl: string;
+  private imageUrl = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
+  constructor(apiKey: string, apiUrl: string) {
+    this.apiKey = apiKey;
+    this.apiUrl = apiUrl;
+  }
 
-class ApiClient{
-    private apiKey: string;
-    constructor(apiKey: string){
-        this.apiKey = apiKey;
-    }
+  buildMoviePosterUrl(relativeUrl:string):string{
+    if(!relativeUrl) return "/movie-placeholder.png"
+    return `${this.imageUrl}${relativeUrl}`
+  }
 
-    async getMovieList(
-        searchText: string = "Star Wars",
-        currentPage: number = 1
-      ) {
-        const response = await fetch(
-          `https://www.omdbapi.com/?s=${searchText}&apikey=${this.apiKey}&page=${currentPage}`
-        );
-        const data: ApiResponse = await response.json();
-        const pageTotal = Math.ceil(parseInt(data.totalResults) / 10);
-        return {
-          data,
-          pageTotal,
-          currentPage,
-        };
+  async getMovieDetail(movieId: string):Promise<FullMovie>{
+    const response = await fetch(
+      `${apiUrl}/movie/${movieId}?api_key=${this.apiKey}`,
+      {
+        headers: {
+          'Content-type': 'application/json'
+        },
       }
+    );
+    const data: FullMovie = await response.json();
+    return data;
+  }
 
+  async getMovieList(
+    searchText: string = "Star Wars",
+    currentPage: number = 1
+  ) {
+    const response = await fetch(
+      `${apiUrl}/search/movie?query=${searchText}&page=${currentPage}&api_key=${this.apiKey}`,
+      {
+        headers: {
+          'Content-type': 'application/json'
+        },
+      }
+    );
+    const data: ApiResponse = await response.json();
+    return data;
+  }
 }
 
 // The Singleton Pattern (Api Client, Db Client)
-export default new ApiClient(apiKey)
+export default new ApiClient(apiKey, apiUrl);

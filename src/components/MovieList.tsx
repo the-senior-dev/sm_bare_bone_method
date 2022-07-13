@@ -2,7 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 
 import MovieCard from './MovieCard'
-import {Movie} from "../types"
+import {Movie} from "../utils/types"
 
  
 interface MovieProps{
@@ -14,12 +14,23 @@ export default function MovieList({movieList, searchText}:MovieProps) {
     return (
         <MovieListContainer>
             <h3>Results for: "{searchText}"</h3>
-            {movieList.map(movie => {
-                return <MovieCard movie={movie}/>
-            })}
+            <MovieCardListWrapper>
+                {movieList.map(movie => {
+                    return <MovieCard movie={movie}/>
+                })}
+            </MovieCardListWrapper>
+
         </MovieListContainer>
     )
 }
+
+const MovieCardListWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+`
 
 const MovieListContainer = styled.div`
     display: flex;

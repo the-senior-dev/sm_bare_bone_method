@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import MovieList from '../components/MovieList'
 import PageContainer from '../components/styled/PageContainer'
 import SearchBar from "../components/SearchBar"
-import { Movie} from "../types"
+import { Movie} from "../utils/types"
 
 import ApiClient from "../utils/movieApiClient"
 
@@ -14,9 +14,9 @@ export default function MainPage() {
     const [searchText, setSearchText] = useState("Star Wars")
 
     async function getMovies(){
-        const {data, pageTotal} = await ApiClient.getMovieList(searchText, currentPage)
-        setMovieList(data.Search)
-        setPageTotal(pageTotal)
+        const {total_pages,results } = await ApiClient.getMovieList(searchText, currentPage)
+        setMovieList(results)
+        setPageTotal(total_pages)
     }
 
     const onSearchClick = () => {
