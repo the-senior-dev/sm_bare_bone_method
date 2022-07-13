@@ -6,13 +6,18 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "build"),
         filename: "[contenthash].bundle.js",
+        publicPath: "/"
     },
     mode: "development",
     plugins: [new HtmlWebpackPlugin({
        template: path.join(__dirname, "public", "index.html")
     })],
     devServer: {
-        port: 3000
+        port: 3000,
+        historyApiFallback: true,
+        static: {
+            publicPath: "/"
+        }
     },
     module: {
         rules: [
@@ -40,5 +45,8 @@ module.exports = {
             }
               
         ]
+    },
+    resolve: {
+        extensions: [".tsx", ".ts", '.js', '.json', '.wasm']
     }
 }

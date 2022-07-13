@@ -8,7 +8,7 @@ interface PaginationProps{
 }
 
 export default function Pagination({pageTotal, currentPage, setCurrentPage}:PaginationProps) {
-    const pageNumberList = [];
+    const pageNumberList:number[] = [];
     for(let i = 1; i < pageTotal; i++){
         pageNumberList.push(i)    
     }

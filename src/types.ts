@@ -4,9 +4,3 @@ export type Movie = {
     Poster: string,
     imdbID: string,
 }
-
-export type ApiResponse = {
-    Search: Movie[]
-    totalResults: string,
-    Response: string
-}

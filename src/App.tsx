@@ -1,25 +1,36 @@
 import React from 'react'
-import MainPage from './components/MainPage'
-import MoviePage from './components/MoviePage'
+import styled from "styled-components"
 import {
     BrowserRouter as Router,
-    Switch,
+    Routes,
     Route
 } from "react-router-dom";
 
+import MainPage from './views/MainPage'
+import MoviePage from './views/MoviePage'
+import Footer from './components/Footer';
+import Header from './components/Header';
+
+
 export default function App() {
     return (
-        <div>
+        <AppContainer>
+            <Header></Header>
             <Router>
-                <Switch>
-                    <Route exact path="/">
-                        <MainPage />
+                <Routes>
+                    <Route path="/" element={ <MainPage />} />
+                    <Route path="/movie/:id" element={  <MoviePage />}>
                     </Route>
-                    <Route path="/movie/:id">
-                        <MoviePage />
-                    </Route>
-                </Switch>
+                </Routes>
             </Router>
-        </div>
+            <Footer></Footer>
+        </AppContainer>
     )
 }
+
+const AppContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`
