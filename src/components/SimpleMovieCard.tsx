@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import movieApiClient from "../utils/movieApiClient";
-import { Movie } from "../utils/types";
+import { Movie } from "../utils/typesApi";
 
 export default function SimpleMovieCard({ movieData }: { movieData: Movie }) {
   const navigate = useNavigate();

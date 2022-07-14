@@ -4,7 +4,7 @@ import {
   FullMovieResponse as FullMovieResponse,
   Movie,
   MovieReview,
-} from "./types";
+} from "./typesApi";
 
 const apiKey = "affc0edf3f789f9357f1d525ba2cdd23";
 const apiUrl = "https://api.themoviedb.org/3";

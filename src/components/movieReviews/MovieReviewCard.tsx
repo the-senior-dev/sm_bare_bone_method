@@ -1,6 +1,6 @@
 import moment from "moment";
 import React from "react";
-import { MovieReview } from "../../utils/types";
+import { MovieReview } from "../../utils/typesApi";
 
 export default function MovieReviewCard({ review }: { review: MovieReview }) {
   return (

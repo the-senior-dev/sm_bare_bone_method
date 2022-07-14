@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import movieApiClient from "../../utils/movieApiClient";
-import { ApiError, isApiError, MovieReview } from "../../utils/types";
+import { ApiError, isApiError, MovieReview } from "../../utils/typesApi";
 import MovieReviewCard from "./MovieReviewCard";
 
 export default function MovieReviewList({ movieId }: { movieId: string }) {

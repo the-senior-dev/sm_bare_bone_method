@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import movieApiClient from "../utils/movieApiClient";
-import { ApiError, ApiResponse, isApiError, Movie } from "../utils/types";
+import { ApiError, ApiResponse, isApiError, Movie } from "../utils/typesApi";
 import SimpleMovieCard from "./SimpleMovieCard";
 
 export default function TrendingNow() {

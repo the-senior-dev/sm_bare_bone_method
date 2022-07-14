@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import movieApiClient from "../utils/movieApiClient";
-import { ApiError, isApiError, Movie } from "../utils/types";
+import { ApiError, isApiError, Movie } from "../utils/typesApi";
 import MovieCard from "./MovieCard";
 
 export default function MovieList() {

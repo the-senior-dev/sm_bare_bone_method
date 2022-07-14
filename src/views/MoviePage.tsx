@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
-
-import { ApiError, FullMovieResponse, isApiError } from "../utils/types";
+import MovieReviewList from "../components/movieReviews/MovieReviewList";
 import PageContainer from "../components/styled/PageContainer";
 import movieApiClient from "../utils/movieApiClient";
-import MovieReviewList from "../components/movieReviews/MovieReviewList";
+import { ApiError, FullMovieResponse, isApiError } from "../utils/typesApi";
 
 export default function MoviePage() {
   const { id } = useParams() as { id: string };
