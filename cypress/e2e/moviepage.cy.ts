@@ -9,7 +9,6 @@ beforeEach(() => {
 
 describe("When the user lands on the home page", () => {
   it("the first 20 movies are displayed", () => {
-    cy.visit("https://example.cypress.io");
     cy.get("[data-testid=movie-card-container-11]").should("be.visible");
   });
 });
