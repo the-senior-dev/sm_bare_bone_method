@@ -1,16 +1,24 @@
-# Action Item: Build a Movie App with Pagination
+# Action Item: The Bare Bone Method
 
-This kind of application is a common example of an interview for a React developer aiming at a mid-level/senior position with a focus on UI development. 
+In this Action Item you will: 
+1. Use the `Bare Bone Method` to 10X your development speed in the frontend
+2. Practice `state architecture` in the front-end by working with local and global state
+3. Write `component` and `end-2end` tests to ensure quality
 
-**Make sure you set aside at least 3 hours of focused, uninterrupted work and give your best.**
+We provide the starting code for this app so you can jump straight into the action. The following three challenges are based on **REAL interview tasks**:
 
-Follow the steps to set up a single-page app with `React` and `Typescript` where the users can:
+## Challenges:
+1. [COMPETENT] Extend the `MainPage` to contain a view of the `Now Playing` movies
+2. [COMPETENT] Add a `Search` and a `Pagination` to the MainPage
+3. [PROFICIENT] Add a global language switch to the page
+4. [EXPERT] Extend the `MoviePage` to show the movie cast and other movies each actor also did
 
-### Functional Requirements:
-1. Search for a movie
-2. See the results, displayed on multiple pages
-3. Change page using the pagination button
-4. Check the individual movie details on a separate page
+### Acceptance Criteria
+1. Write `unit test` or end-to-end test where you see appropriate
+
+
+
+
 
 **Use the [OMDB API](http://www.omdbapi.com/) to fetch movies. Make sure you create and account and get an [API key](http://www.omdbapi.com/apikey.aspx).**
 
