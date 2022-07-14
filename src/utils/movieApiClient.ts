@@ -1,7 +1,7 @@
 import {
   ApiError,
   ApiResponse,
-  FullMovieResponse as FullMovieResponse,
+  FullMovieResponse,
   Movie,
   MovieReview,
 } from "./typesApi";

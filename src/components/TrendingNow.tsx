@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import movieApiClient from "../utils/movieApiClient";
-import { ApiError, ApiResponse, isApiError, Movie } from "../utils/typesApi";
+import { ApiError, isApiError, Movie } from "../utils/typesApi";
 import SimpleMovieCard from "./SimpleMovieCard";
 
 export default function TrendingNow() {
@@ -24,7 +24,9 @@ export default function TrendingNow() {
       <SectionHeading>Trending Now</SectionHeading>
       <TrendingContainer>
         {!error &&
-          movieListTrending?.map((mov) => <SimpleMovieCard movieData={mov} />)}
+          movieListTrending?.map((mov) => (
+            <SimpleMovieCard movieData={mov} key={mov.id} />
+          ))}
       </TrendingContainer>
       {error}
     </div>

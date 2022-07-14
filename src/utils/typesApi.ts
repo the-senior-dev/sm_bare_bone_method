@@ -14,6 +14,11 @@ export type Movie = {
   overview: string;
 };
 
+export type MovieGenre = {
+  id: string;
+  name: string;
+};
+
 export type FullMovieResponse = {
   backdrop_path: string;
   budget: 63000000;
@@ -34,9 +39,12 @@ export type FullMovieResponse = {
   vote_count: number;
 };
 
-export type MovieGenre = {
+export type ReviewAuthorDetails = {
   id: string;
   name: string;
+  rating: number;
+  avatar_path: string;
+  username: string;
 };
 
 export type MovieReview = {
@@ -45,14 +53,6 @@ export type MovieReview = {
   author_details: ReviewAuthorDetails;
   content: string;
   created_at: string;
-};
-
-export type ReviewAuthorDetails = {
-  id: string;
-  name: string;
-  rating: number;
-  avatar_path: string;
-  username: string;
 };
 
 export type ApiError = {

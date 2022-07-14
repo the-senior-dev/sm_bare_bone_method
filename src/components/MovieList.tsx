@@ -25,7 +25,7 @@ export default function MovieList() {
     <MovieListContainer>
       <MovieCardListWrapper>
         {movieList.map((movie) => {
-          return <MovieCard movie={movie} />;
+          return <MovieCard movie={movie} key={movie.id} />;
         })}
       </MovieCardListWrapper>
       {error?.message}
