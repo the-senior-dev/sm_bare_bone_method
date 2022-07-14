@@ -1,19 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from "styled-components"
 
 import MovieCard from './MovieCard'
 import {Movie} from "../utils/types"
+import movieApiClient from '../utils/movieApiClient'
 
- 
-interface MovieProps{
-    movieList: Movie[],
-    searchText: string
-}
 
-export default function MovieList({movieList, searchText}:MovieProps) {
+export default function MovieList() {
+
+    const [movieList, setMovieList] = useState<Movie[]>([])
+
+    async function getMovies(){
+        const {results } = await movieApiClient.getMovieList()
+        setMovieList(results)
+    }
+
+    useEffect(() => {
+        getMovies()
+    }, [])
+
     return (
         <MovieListContainer>
-            <h3>Results for: "{searchText}"</h3>
             <MovieCardListWrapper>
                 {movieList.map(movie => {
                     return <MovieCard movie={movie}/>

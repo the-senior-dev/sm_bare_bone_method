@@ -31,10 +31,10 @@ export default function MoviePage() {
                     <p>Tagline: {movieData?.tagline}</p>
                     <p>Rating: {movieData?.vote_average}</p>
                     <p>Plot: {movieData?.overview}</p>
-                    <MovieReviewList movieId={id}/>
                 </MovieDetailWrapper>
             </div>
             <Link to="/">Go Back</Link>
+            <MovieReviewList movieId={id}/>
         </PageContainer>
     )
 }

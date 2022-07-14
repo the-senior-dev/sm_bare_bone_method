@@ -1,8 +1,6 @@
 import { ApiResponse, ApiResponseReviews, FullMovie, Movie, MovieReview } from "./types";
 
 const apiKey = "affc0edf3f789f9357f1d525ba2cdd23"
-const apiToken =
-  "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhZmZjMGVkZjNmNzg5ZjkzNTdmMWQ1MjViYTJjZGQyMyIsInN1YiI6IjYyY2U4N2NmYjk3NDQyMDNiYTZiMTUzNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.yRkUq57xsBtbaBUyle1V3X9HpLLfaoI93AYxMX_a6yw";
 const apiUrl = "https://api.themoviedb.org/3";
 class ApiClient {
   private apiKey: string;
@@ -33,10 +31,9 @@ class ApiClient {
 
   async getMovieList(
     searchText: string = "Star Wars",
-    currentPage: number = 1
   ) {
     const response = await fetch(
-      `${apiUrl}/search/movie?query=${searchText}&page=${currentPage}&api_key=${this.apiKey}`,
+      `${apiUrl}/search/movie?query=star%20wars&api_key=${this.apiKey}`,
       {
         headers: {
           'Content-type': 'application/json'
@@ -44,6 +41,7 @@ class ApiClient {
       }
     );
     const data: ApiResponse = await response.json();
+
     return data;
   }
 

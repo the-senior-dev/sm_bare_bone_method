@@ -15,7 +15,7 @@ export default function SimpleMovieCard({ movieData }: { movieData: Movie }) {
     <SimpleMovieCardContainer>
       <SimpleMovieCardImage
         src={movieApiClient.buildMoviePosterUrl(movieData.poster_path)}
-        height="200"
+        height="174"
         onClick={onCardClick}
       ></SimpleMovieCardImage>
     </SimpleMovieCardContainer>

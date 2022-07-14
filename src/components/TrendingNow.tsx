@@ -14,7 +14,7 @@ export default function TrendingNow(){
 
     return (
         <div>
-            <h1>Trending Now</h1>
+            <SectionHeading>Trending Now</SectionHeading>
             <TrendingContainer>
                 {movieListTrending?.map((mov) => <SimpleMovieCard movieData={mov}/>)}
             </TrendingContainer>
@@ -22,8 +22,17 @@ export default function TrendingNow(){
     )
 }
 
+const SectionHeading= styled.h1`
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+`
+
 const TrendingContainer = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
 `
