@@ -1,6 +1,12 @@
-import { ApiResponse, ApiResponseReviews, FullMovie, Movie, MovieReview } from "./types";
+import {
+  ApiError,
+  ApiResponse,
+  FullMovieResponse as FullMovieResponse,
+  Movie,
+  MovieReview,
+} from "./types";
 
-const apiKey = "affc0edf3f789f9357f1d525ba2cdd23"
+const apiKey = "affc0edf3f789f9357f1d525ba2cdd23";
 const apiUrl = "https://api.themoviedb.org/3";
 class ApiClient {
   private apiKey: string;
@@ -11,68 +17,93 @@ class ApiClient {
     this.apiUrl = apiUrl;
   }
 
-  buildMoviePosterUrl(relativeUrl:string):string{
-    if(!relativeUrl) return "/movie-placeholder.png"
-    return `${this.imageUrl}${relativeUrl}`
+  buildMoviePosterUrl(relativeUrl: string): string {
+    if (!relativeUrl) return "/movie-placeholder.png";
+    return `${this.imageUrl}${relativeUrl}`;
   }
 
-  async getMovieDetail(movieId: string):Promise<FullMovie>{
-    const response = await fetch(
-      `${apiUrl}/movie/${movieId}?api_key=${this.apiKey}`,
-      {
-        headers: {
-          'Content-type': 'application/json'
-        },
-      }
-    );
-    const data: FullMovie = await response.json();
-    return data;
+  async getMovieDetail(movieId: string): Promise<FullMovieResponse | ApiError> {
+    try {
+      const response = await fetch(
+        `${apiUrl}/movie/${movieId}?api_key=${this.apiKey}`,
+        {
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
+      const data: FullMovieResponse = await response.json();
+      return data;
+    } catch (err) {
+      console.error(err);
+      return {
+        message: "An error has ocurred while fetching data",
+      } as ApiError;
+    }
   }
 
-  async getMovieList(
-    searchText: string = "Star Wars",
-  ) {
-    const response = await fetch(
-      `${apiUrl}/search/movie?query=star%20wars&api_key=${this.apiKey}`,
-      {
-        headers: {
-          'Content-type': 'application/json'
-        },
-      }
-    );
-    const data: ApiResponse = await response.json();
+  async getMovieList(): Promise<ApiResponse<Movie> | ApiError> {
+    try {
+      const response = await fetch(
+        `${apiUrl}/search/movie?query=star%20wars&api_key=${this.apiKey}`,
+        {
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
+      const data: ApiResponse<Movie> = await response.json();
 
-    return data;
+      return data;
+    } catch (err) {
+      console.error(err);
+      return {
+        message: "An error has ocurred while fetching data",
+      } as ApiError;
+    }
   }
 
-  async getMovieReview(movieId: string):Promise<MovieReview[]>{
-    const response = await fetch(
-      `${apiUrl}/movie/${movieId}/reviews?api_key=${this.apiKey}`,
-      {
-        headers: {
-          'Content-type': 'application/json'
-        },
-      }
-    );
-    const data:ApiResponseReviews = await response.json();
-    return data.results;
-  }
-  
-
-  async getMovieListNowPlaying():Promise<Movie[]>{
-    const response = await fetch(
-      `${apiUrl}/movie/now_playing?api_key=${this.apiKey}`,
-      {
-        headers: {
-          'Content-type': 'application/json'
-        },
-      }
-    );
-    const data:ApiResponse = await response.json();
-    return data.results;
+  async getMovieReviewList(
+    movieId: string
+  ): Promise<ApiResponse<MovieReview> | ApiError> {
+    try {
+      const response = await fetch(
+        `${apiUrl}/movie/${movieId}/reviews?api_key=${this.apiKey}`,
+        {
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
+      const data: ApiResponse<MovieReview> = await response.json();
+      return data;
+    } catch (err) {
+      console.error(err);
+      return {
+        message: "An error has ocurred while fetching data",
+      } as ApiError;
+    }
   }
 
-  
+  async getMovieListNowPlaying(): Promise<ApiResponse<Movie> | ApiError> {
+    try {
+      const response = await fetch(
+        `${apiUrl}/movie/now_playing?api_key=${this.apiKey}`,
+        {
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
+      const data: ApiResponse<Movie> = await response.json();
+      return data;
+    } catch (err) {
+      console.error(err);
+      return {
+        message: "An error has ocurred while fetching data",
+      } as ApiError;
+    }
+  }
 }
 
 // The Singleton Pattern (Api Client, Db Client)

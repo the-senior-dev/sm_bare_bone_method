@@ -1,47 +1,49 @@
-import React, { useEffect, useState } from 'react'
-import styled from "styled-components"
-
-import MovieCard from './MovieCard'
-import {Movie} from "../utils/types"
-import movieApiClient from '../utils/movieApiClient'
-
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import movieApiClient from "../utils/movieApiClient";
+import { ApiError, isApiError, Movie } from "../utils/types";
+import MovieCard from "./MovieCard";
 
 export default function MovieList() {
+  const [movieList, setMovieList] = useState<Movie[]>([]);
+  const [error, setFetchError] = useState<ApiError | null>();
 
-    const [movieList, setMovieList] = useState<Movie[]>([])
-
-    async function getMovies(){
-        const {results } = await movieApiClient.getMovieList()
-        setMovieList(results)
+  async function getMovies() {
+    const response = await movieApiClient.getMovieList();
+    if (isApiError(response)) {
+      setFetchError(response);
+    } else {
+      setMovieList(response.results);
     }
+  }
 
-    useEffect(() => {
-        getMovies()
-    }, [])
+  useEffect(() => {
+    getMovies();
+  }, []);
 
-    return (
-        <MovieListContainer>
-            <MovieCardListWrapper>
-                {movieList.map(movie => {
-                    return <MovieCard movie={movie}/>
-                })}
-            </MovieCardListWrapper>
-
-        </MovieListContainer>
-    )
+  return (
+    <MovieListContainer>
+      <MovieCardListWrapper>
+        {movieList.map((movie) => {
+          return <MovieCard movie={movie} />;
+        })}
+      </MovieCardListWrapper>
+      {error?.message}
+    </MovieListContainer>
+  );
 }
 
 const MovieCardListWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+`;
 
 const MovieListContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;

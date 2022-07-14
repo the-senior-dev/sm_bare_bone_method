@@ -1,9 +1,8 @@
+import _ from "lodash";
+import moment from "moment";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import moment from "moment"
-import _ from "lodash"
-
 import movieApiClient from "../utils/movieApiClient";
 import { Movie } from "../utils/types";
 
@@ -11,16 +10,15 @@ interface MovieCardProps {
   movie: Movie;
 }
 
-
 export default function MovieCard({ movie }: MovieCardProps) {
   const navigate = useNavigate();
   const onCardClick = () => {
     navigate(`/movie/${movie.id}`);
   };
 
-  function plotShorten(text:string, length: number = 250){
-    const shortText = _.take(text.split(""), length).join("")
-    return shortText + "..." ;
+  function plotShorten(text: string, length: number = 250) {
+    const shortText = _.take(text.split(""), length).join("");
+    return shortText + "...";
   }
 
   return (

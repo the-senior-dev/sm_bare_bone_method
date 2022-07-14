@@ -1,5 +1,5 @@
-export type ApiResponse = {
-  results: Movie[];
+export type ApiResponse<T> = {
+  results: T[];
   page: number;
   total_results: number;
   total_pages: number;
@@ -14,7 +14,7 @@ export type Movie = {
   overview: string;
 };
 
-export type FullMovie = {
+export type FullMovieResponse = {
   backdrop_path: string;
   budget: 63000000;
   poster_path: string;
@@ -23,7 +23,6 @@ export type FullMovie = {
   original_title: string;
   overview: string;
   popularity: number;
-  poster_path: string;
   release_date: string;
   revenue: number;
   runtime: number;
@@ -43,7 +42,7 @@ export type MovieGenre = {
 export type MovieReview = {
   id: string;
   author: string;
-  author_details: ReviewAuthorDetails
+  author_details: ReviewAuthorDetails;
   content: string;
   created_at: string;
 };
@@ -53,12 +52,16 @@ export type ReviewAuthorDetails = {
   name: string;
   rating: number;
   avatar_path: string;
-  username: string
+  username: string;
 };
 
-export type ApiResponseReviews = {
-  results: MovieReview[];
-  page: number;
-  total_results: number;
-  total_pages: number;
+export type ApiError = {
+  message: string;
+  isError: true;
 };
+
+type ApiResponseGeneric<T> = ApiError | ApiResponse<T> | FullMovieResponse;
+
+export function isApiError<T>(data: ApiResponseGeneric<T>): data is ApiError {
+  return (data as ApiError).isError;
+}

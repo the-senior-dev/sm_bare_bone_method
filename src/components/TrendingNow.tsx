@@ -1,38 +1,47 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-import { Movie } from "../utils/types";
+import movieApiClient from "../utils/movieApiClient";
+import { ApiError, ApiResponse, isApiError, Movie } from "../utils/types";
 import SimpleMovieCard from "./SimpleMovieCard";
-import movieApiClient from "../utils/movieApiClient"
 
-export default function TrendingNow(){
-    const [movieListTrending, setMovieListTrending] = useState<Movie[] | null>();
+export default function TrendingNow() {
+  const [movieListTrending, setMovieListTrending] = useState<Movie[] | null>();
+  const [error, setFetchError] = useState<ApiError | null>();
 
-    useEffect(() => {
-        movieApiClient.getMovieListNowPlaying().then(data => setMovieListTrending(data))
-    }, [])
+  useEffect(() => {
+    movieApiClient.getMovieListNowPlaying().then((data) => {
+      if (isApiError(data)) {
+        setFetchError(data);
+      } else {
+        setMovieListTrending(data.results);
+      }
+    });
+  }, []);
 
-    return (
-        <div>
-            <SectionHeading>Trending Now</SectionHeading>
-            <TrendingContainer>
-                {movieListTrending?.map((mov) => <SimpleMovieCard movieData={mov}/>)}
-            </TrendingContainer>
-        </div>
-    )
+  return (
+    <div>
+      <SectionHeading>Trending Now</SectionHeading>
+      <TrendingContainer>
+        {!error &&
+          movieListTrending?.map((mov) => <SimpleMovieCard movieData={mov} />)}
+      </TrendingContainer>
+      {error}
+    </div>
+  );
 }
 
-const SectionHeading= styled.h1`
-    width: 100%;
-    text-align: left;
-    padding-left: 10px;
-`
+const SectionHeading = styled.h1`
+  width: 100%;
+  text-align: left;
+  padding-left: 10px;
+`;
 
 const TrendingContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding-left: 10px;
-    padding-right: 10px;
-`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+`;
