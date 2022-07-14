@@ -20,11 +20,26 @@ We provide the starting code for this app so you can jump straight into the acti
 1. You will need an API Key to make the requests to the API. You can get one [here](https://developers.themoviedb.org/3/getting-started/introduction)
 2. Check the `package.json` to see the scripts available. Run `npm start` to run the app.
 
+----
 
-
-### 1. [COMPETENT] Extend the `MainPage` to contain a view of the `Now Playing` movies
+### 1. [COMPETENT] Extend the `MainPage` to contain a view of the `Upcoming` movies
 ![](examples/now-playing-low-fidelity.png)
 
+#### Acceptance Criteria
+1. The `MainPage` should display a section with the upcoming movies
+2. The style should be the same as the [TrendingNow](src/components/TrendingNow.tsx) component - you can just copy that one.
+
+Use the bare bone method to structure your component and data flow before styling. Check out how we do that here. [VIDEO WITH BARE BONE HERE]
+
+###### Hint: you might need to extend the [movieApiClient] and add a method to fetch a list of the movies upcoming. Check out [the endpoint documentation here](https://developers.themoviedb.org/3/movies/get-upcoming).
+
+###### Hint: you can reuse the same component if you "lift state", extract the business logic and isolate the __rendering__ into a stateless component.
+
+### Solution: Task 1
+1. Task 1 - Solution Code
+2. Task 1 - Video Solution Here
+
+----
 
 
 ----
