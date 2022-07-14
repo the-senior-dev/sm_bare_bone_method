@@ -76,7 +76,7 @@ Use the bare bone method to structure your component and data flow before stylin
 2. All the component should switch language when the dropdown is selected, across all pages
 3. The language choice should be persisted in `localStorage` 
 
-![search-bar-pagination](examples/language-switch.png)
+![language-switch](examples/language-switch.png)
 
 #### Optional Acceptance Criteria:
 - the language switch should pickup the browser default language if not configured previously
@@ -102,5 +102,14 @@ Use the bare bone method to structure your component and data flow before stylin
 ### Getting Help
 
 If you have issues with the Action Item, you can ask for help in the [Community](https://community.theseniordev.com/) or in the [Weekly Q&A’s](https://calendar.google.com/calendar/u/0?cid=Y19kbGVoajU1Z2prNXZmYmdoYmxtdDRvN3JyNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t).
+
+
+### Extra Resources
+
+1. Low fidelity view of the finished app
+
+![finished-app](examples/complete-low-fidelity.png)
+
+
 
 ### Made with :orange_heart: in Berlin by @TheSeniorDev
