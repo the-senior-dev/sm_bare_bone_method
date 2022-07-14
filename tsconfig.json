@@ -16,5 +16,5 @@
     "noEmit": false,
     "jsx": "react-jsx"
   },
-  "include": ["src/**/*.ts", "src/components/SearchBar.tsx"]
+  "include": ["src/**/*.ts", "src/components/SearchBar.tsx", "src/components/styled/PageContainer.tsx"]
 }

@@ -7,6 +7,7 @@ import { Movie} from "../utils/types"
 
 import ApiClient from "../utils/movieApiClient"
 import { useSearchParams } from 'react-router-dom'
+import TrendingNow from '../components/TrendingNow'
 
 export default function MainPage() {
     const [movieList, setMovieList] = useState<Movie[]>([])
@@ -32,6 +33,7 @@ export default function MainPage() {
         <PageContainer>
             <SearchBar searchText={searchText} onChange={setSearchText} onClick={onSearchClick}></SearchBar>
             <MovieList movieList={movieList} searchText={searchText}></MovieList>
+            <TrendingNow></TrendingNow>
         </PageContainer>
     )
 }

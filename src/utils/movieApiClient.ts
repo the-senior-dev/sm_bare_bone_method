@@ -1,4 +1,4 @@
-import { ApiResponse, ApiResponseReviews, FullMovie, MovieReview } from "./types";
+import { ApiResponse, ApiResponseReviews, FullMovie, Movie, MovieReview } from "./types";
 
 const apiKey = "affc0edf3f789f9357f1d525ba2cdd23"
 const apiToken =
@@ -57,6 +57,20 @@ class ApiClient {
       }
     );
     const data:ApiResponseReviews = await response.json();
+    return data.results;
+  }
+  
+
+  async getMovieListNowPlaying():Promise<Movie[]>{
+    const response = await fetch(
+      `${apiUrl}/movie/now_playing?api_key=${this.apiKey}`,
+      {
+        headers: {
+          'Content-type': 'application/json'
+        },
+      }
+    );
+    const data:ApiResponse = await response.json();
     return data.results;
   }
 
