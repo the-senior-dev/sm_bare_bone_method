@@ -22,14 +22,19 @@ export default function MovieCard({ movie }: MovieCardProps) {
   }
 
   return (
-    <MovieCardContainer onClick={onCardClick}>
+    <MovieCardContainer
+      data-testid={`movie-card-container-${movie.id}`}
+      onClick={onCardClick}
+    >
       <div style={{ display: "flex" }}>
         <img
           height="238"
           src={movieApiClient.buildMoviePosterUrl(movie.poster_path)}
         ></img>
         <MovieCardSummary>
-          <MovieTitle>{movie.title}</MovieTitle>
+          <MovieTitle data-testid={`movie-card-title-${movie.id}`}>
+            {movie.title}
+          </MovieTitle>
 
           <p>Release Date: {moment(movie.release_date).format("MMM Do YY")}</p>
           <MoviePlot>Plot: {plotShorten(movie.overview)}</MoviePlot>

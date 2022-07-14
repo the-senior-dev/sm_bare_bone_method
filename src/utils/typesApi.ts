@@ -6,12 +6,20 @@ export type ApiResponse<T> = {
 };
 
 export type Movie = {
+  adult: boolean;
   original_title: string;
   poster_path: string;
-  id: string;
+  id: number;
   release_date: string;
   title: string;
   overview: string;
+  backdrop_path: string;
+  genre_ids: number[];
+  original_language: string;
+  popularity: number;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
 };
 
 export type MovieGenre = {

@@ -3,8 +3,14 @@ module.exports = {
     browser: true,
     es2021: true,
     jest: true,
+    "cypress/globals": true,
   },
-  extends: ["plugin:react/recommended", "standard", "prettier"],
+  extends: [
+    "plugin:react/recommended",
+    "standard",
+    "prettier",
+    "plugin:cypress/recommended",
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
@@ -13,7 +19,7 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ["react", "@typescript-eslint", "cypress"],
   rules: {},
   settings: {
     react: {

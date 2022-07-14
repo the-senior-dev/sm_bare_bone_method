@@ -1,8 +1,8 @@
 import React from "react";
-import MovieReviewCard from "./MovieReviewCard";
+import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { MovieReview } from "../../utils/typesApi";
-import "@testing-library/jest-dom";
+import MovieReviewCard from "./MovieReviewCard";
 
 describe("loads and displays the review", () => {
   const review: MovieReview = {
