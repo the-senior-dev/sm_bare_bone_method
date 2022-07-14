@@ -28,7 +28,7 @@ export default function TrendingNow() {
             <SimpleMovieCard movieData={mov} key={mov.id} />
           ))}
       </TrendingContainer>
-      {error}
+      <p>{error?.message}</p>
     </div>
   );
 }
