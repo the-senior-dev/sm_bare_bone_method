@@ -10,7 +10,7 @@
     "build": "webpack",
     "start": "webpack serve",
     "test": "jest --watch",
-    "lint": "eslint ./src --fix",
+    "lint": "eslint src/**/*.ts* --fix",
     "prepare": "husky install"
   },
   "repository": {
