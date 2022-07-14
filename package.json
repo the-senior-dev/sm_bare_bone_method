@@ -10,7 +10,7 @@
     "build": "webpack",
     "start": "webpack serve",
     "test": "jest --watch",
-    "lint": "eslint src/**/*.ts* --fix",
+    "lint": "lint-staged",
     "prepare": "husky install"
   },
   "repository": {
@@ -52,6 +52,7 @@
     "html-webpack-plugin": "^5.3.2",
     "husky": "^8.0.1",
     "jest": "^27.2.0",
+    "lint-staged": "^13.0.3",
     "style-loader": "^3.2.1",
     "ts-jest": "^27.0.5",
     "ts-loader": "^9.2.5",
@@ -69,5 +70,9 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
     "styled-components": "^5.3.1"
+  },
+  "lint-staged": {
+    ".ts": "eslint",
+    ".tsx": "eslint"
   }
 }
