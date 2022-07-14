@@ -12,8 +12,7 @@ We provide the starting code for this app so you can jump straight into the acti
 ## Challenges:
 1. [COMPETENT] Extend the `MainPage` to contain a view of the `Now Playing` movies
 2. [COMPETENT] Add a `Search` and a `Pagination` to the MainPage
-3. [PROFICIENT] Add a global language switch to the page
-4. [EXPERT] Extend the `MoviePage` to show the movie cast and other movies each actor also did
+3. [EXPERT] Add a global language switch to the page
 
 
 ### Getting Started
@@ -71,12 +70,17 @@ Use the bare bone method to structure your component and data flow before stylin
 
 ----
 
-### 3. [PROFICIENT] Add a global language switch to the page
+### 3. [EXPERT] Add a global language switch to the page
 #### Acceptance Criteria
 1. In the `Header`, add a dropdown that will change the language of the whole website
 2. All the component should switch language when the dropdown is selected, across all pages
 3. The language choice should be persisted in `localStorage` 
 
+![search-bar-pagination](examples/language-switch.png)
+
+#### Optional Acceptance Criteria:
+- the language switch should pickup the browser default language if not configured previously
+- the api calls should fetch data in the user preferred language when possible
 
 ###### Hint: take time to understand where the state of the localization will live and how you will distribute it to all the component.
 
