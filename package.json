@@ -72,7 +72,7 @@
     "styled-components": "^5.3.1"
   },
   "lint-staged": {
-    ".ts": "eslint",
-    ".tsx": "eslint"
+    "*.ts": "eslint",
+    "*.tsx": "eslint"
   }
 }
