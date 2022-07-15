@@ -14,7 +14,7 @@ We provide the starting code for this app so you can jump straight into the acti
 2. [COMPETENT] Add a `Search` and a `Pagination` to the MainPage
 3. [EXPERT] Add a global language switch to the page
 
-[Checkout how the final app should look like here]()
+[Checkout how the final app should look like here](/the-senior-dev/sm_bare_bone_method#extra-resources)
 
 ### Getting Started
 1. You will need an API Key to make the requests to the API. You can get one [here](https://developers.themoviedb.org/3/getting-started/introduction)
