@@ -10,6 +10,7 @@ module.exports = {
     "standard",
     "prettier",
     "plugin:cypress/recommended",
+    "plugin:@typescript-eslint/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -19,8 +20,11 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "cypress"],
-  rules: {},
+  plugins: ["react", "@typescript-eslint", "cypress", "styled-components-a11y"],
+  rules: {
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": "off",
+  },
   settings: {
     react: {
       version: "detect",
