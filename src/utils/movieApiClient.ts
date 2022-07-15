@@ -5,6 +5,7 @@ import {
   Movie,
   MovieReview,
 } from "./typesApi";
+import placeHolder from "../assets/movie-placeholder.png";
 
 const apiKey = "affc0edf3f789f9357f1d525ba2cdd23";
 const apiUrl = "https://api.themoviedb.org/3";
@@ -18,7 +19,7 @@ class ApiClient {
   }
 
   buildMoviePosterUrl(relativeUrl: string): string {
-    if (!relativeUrl) return "/movie-placeholder.png";
+    if (!relativeUrl) return placeHolder;
     return `${this.imageUrl}${relativeUrl}`;
   }
 
