@@ -5,7 +5,7 @@ import SimpleMovieCard from "./SimpleMovieCard";
 import { MovieSliderContainer, SectionHeading } from "./styled";
 
 export default function Upcoming() {
-  const [movieListTrending, setMovieListTrending] = useState<Movie[] | null>();
+  const [movieListUpcoming, setMovieListUpcoming] = useState<Movie[] | null>();
   const [error, setFetchError] = useState<ApiError | null>();
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export default function Upcoming() {
       if (isApiError(data)) {
         setFetchError(data);
       } else {
-        setMovieListTrending(data.results);
+        setMovieListUpcoming(data.results);
       }
     });
   }, []);
@@ -23,7 +23,7 @@ export default function Upcoming() {
       <SectionHeading>Upcoming</SectionHeading>
       <MovieSliderContainer>
         {!error &&
-          movieListTrending?.map((mov) => (
+          movieListUpcoming?.map((mov) => (
             <SimpleMovieCard movieData={mov} key={mov.id} />
           ))}
       </MovieSliderContainer>
