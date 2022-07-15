@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { PrimaryButton } from "./styled";
 
 interface PaginationProps {
   currentPage: number;
@@ -14,33 +15,49 @@ export default function Pagination({
 }: PaginationProps) {
   return (
     <PaginationContainer>
-      <button disabled={currentPage === 1} onClick={() => setCurrentPage(1)}>
+      <PrimaryButton
+        disabled={currentPage === 1}
+        onClick={() => setCurrentPage(1)}
+      >
         first
-      </button>
-      <button
+      </PrimaryButton>
+      <PrimaryButton
         disabled={currentPage === 1}
         onClick={() => setCurrentPage(currentPage - 1)}
       >
         previous
-      </button>
-      <p>{currentPage}</p>
-      <button
+      </PrimaryButton>
+      <PaginationNumber>{currentPage}</PaginationNumber>
+      <PrimaryButton
         disabled={currentPage === lastPage}
         onClick={() => setCurrentPage(currentPage + 1)}
       >
         next
-      </button>
-      <button
+      </PrimaryButton>
+      <PrimaryButton
         disabled={currentPage === lastPage}
         onClick={() => setCurrentPage(lastPage)}
       >
         last
-      </button>
+      </PrimaryButton>
     </PaginationContainer>
   );
 }
 
+const PaginationNumber = styled.div`
+  font-weight: 700;
+  justify-content: center;
+  font-size: 20px;
+  align-items: center;
+  padding-right: 20px;
+  padding-left: 20px;
+`;
+
 const PaginationContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  max-width: 600px;
+  margin: auto;
+  align-items: center;
+  padding-top: 20px;
 `;

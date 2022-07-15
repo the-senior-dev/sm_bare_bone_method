@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { PrimaryButton } from "./styled";
 
 interface SearchBarProps {
   setSearchText: (text: string) => void;
@@ -19,9 +20,9 @@ export default function SearchBar({ setSearchText }: SearchBarProps) {
           value={inputText}
           onChange={(event) => setInputText(event.target.value)}
         ></SearchInput>
-        <SearchButton onClick={() => setSearchText(inputText)}>
+        <PrimaryButton onClick={() => setSearchText(inputText)}>
           Search
-        </SearchButton>
+        </PrimaryButton>
       </SearchWrapper>
     </SearchBarContainer>
   );
@@ -70,24 +71,6 @@ const SearchInput = styled.input`
   font-size: 1rem;
   color: #636e72;
   font-weight: 300;
-`;
-
-const SearchButton = styled.button`
-  height: 40px;
-  display: flex;
-  width: 200px;
-  background-color: #0984e3;
-  border-color: #0984e3;
-  color: white;
-  font-weight: 700;
-  font-size: 1.2rem;
-  justify-content: center;
-  align-items: center;
-  border-width: 0px;
-  &:hover {
-    background-color: #0984e3;
-    cursor: pointer;
-  }
 `;
 
 const SearchWrapper = styled.div`
