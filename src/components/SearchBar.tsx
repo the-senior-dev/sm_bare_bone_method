@@ -3,6 +3,7 @@ import styled from "styled-components";
 import chroma from "chroma-js";
 import PrimaryButton from "../components/styled/PrimaryButton";
 import { DarkModeContext } from "../store/context";
+import backgroundImage from "../assets/search-header.png";
 
 interface SearchBarProps {
   setSearchText: (text: string) => void;
@@ -40,7 +41,7 @@ const SearchBarContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  background-image: url("/search-header.png");
+  background-image: url("${backgroundImage}");
   padding: 20px;
   box-sizing: border-box;
   margin-bottom: 20px;
