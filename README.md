@@ -1,9 +1,9 @@
 # Action Item: The Bare Bone Method
 
 In this Action Item you will: 
-1. Use the `Bare Bone Method` to 10X your development speed in the frontend
-2. Practice `state architecture` in the front-end by working with local and global state
-3. Write `component` and `end-2end` tests to ensure quality
+- 🧱 Use the `Bare Bone Method` to 10X your development speed in the frontend
+- 🏗️ Practice `state architecture` in the front-end by working with local and global state
+- 🧪 Write `component` and `end-2end` tests to ensure quality
 
 ![bare-bone-method](examples/the_bare_bone_method.png)
 
