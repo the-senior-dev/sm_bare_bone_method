@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-export default function SearchBar() {
+interface SearchBarProps {
+  setSearchText: (text: string) => void;
+}
+
+export default function SearchBar({ setSearchText }: SearchBarProps) {
+  const [inputText, setInputText] = useState("Star Wars");
+
   return (
     <SearchBarContainer>
       <SearchBarTitle>Welcome.</SearchBarTitle>
       <SearchBarSubTitle>
         Millions of movies, TV shows and people to discover. Explore now.
       </SearchBarSubTitle>
+      <SearchWrapper>
+        <SearchInput
+          value={inputText}
+          onChange={(event) => setInputText(event.target.value)}
+        ></SearchInput>
+        <SearchButton onClick={() => setSearchText(inputText)}>
+          Search
+        </SearchButton>
+      </SearchWrapper>
     </SearchBarContainer>
   );
 }
@@ -42,7 +57,7 @@ const SearchBarSubTitle = styled.h3`
 `;
 
 // NOTE: You can use the components bellow to go quicker
-/** 
+
 const SearchInput = styled.input`
   display: flex;
   border-radius: 0px;
@@ -81,4 +96,3 @@ const SearchWrapper = styled.div`
   justify-content: center;
   align-items: flex-end;
 `;
-**/

@@ -42,10 +42,13 @@ class ApiClient {
     }
   }
 
-  async getMovieList(): Promise<ApiResponse<Movie> | ApiError> {
+  async getMovieList(
+    searchText: string = "star wars",
+    currentPage: number = 1
+  ): Promise<ApiResponse<Movie> | ApiError> {
     try {
       const response = await fetch(
-        `${apiUrl}/search/movie?query=star%20wars&api_key=${this.apiKey}`,
+        `${apiUrl}/search/movie?query=${searchText}&page=${currentPage}&api_key=${this.apiKey}`,
         {
           headers: {
             "Content-type": "application/json",
