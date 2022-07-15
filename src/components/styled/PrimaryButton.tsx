@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
+import chroma from "chroma-js";
 import { DarkModeContext } from "../../store/context";
 
 interface PrimaryButtonRawProps {
@@ -10,8 +11,8 @@ const PrimaryButtonRaw = styled.button<PrimaryButtonRawProps>`
   height: 40px;
   display: flex;
   width: 200px;
-  background-color: #0984e3;
-  border-color: #0984e3;
+  background-color: #6c5ce7;
+  border-color: #6c5ce7;
   color: ${(props) => props.textColor};
   font-weight: 700;
   font-size: 1.2rem;
@@ -21,11 +22,11 @@ const PrimaryButtonRaw = styled.button<PrimaryButtonRawProps>`
   margin-right: 4px;
   margin-left: 4px;
   &:hover {
-    background-color: #0984e3;
+    background-color: ${chroma("#6c5ce7").saturate().hex()};
     cursor: pointer;
   }
   &:disabled {
-    background-color: grey;
+    background-color: ${chroma("#6c5ce7").desaturate(3).hex()};
     cursor: normal;
   }
 `;

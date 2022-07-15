@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
+import chroma from "chroma-js";
 import PrimaryButton from "../components/styled/PrimaryButton";
 import { DarkModeContext } from "../store/context";
 
@@ -71,7 +72,7 @@ interface SearchInputProps {
 const SearchInput = styled.input<SearchInputProps>`
   display: flex;
   border-radius: 0px;
-  border-width: 0px;
+  border-width: 1px;
   height: 40px;
   flex-grow: 1;
   padding: 0px;
@@ -81,6 +82,11 @@ const SearchInput = styled.input<SearchInputProps>`
   color: ${(props) => props.color};
   font-weight: 300;
   background-color: ${(props) => props.backgroundColor};
+  border-color: ${(props) => props.color};
+  :focus-visible {
+    outline: none;
+    border-color: ${chroma("#6c5ce7").saturate().hex()};
+  }
 `;
 
 const SearchWrapper = styled.div`
