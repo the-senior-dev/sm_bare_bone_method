@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import movieApiClient from "../utils/movieApiClient";
 import SimpleMovieCard from "./SimpleMovieCard";
-import { MovieSliderContainer, SectionHeading } from "./styled/PageContainer";
+import { MovieSliderContainer, SectionHeading } from "./styled";
 
 export default function TrendingNow() {
   const [movieListTrending, setMovieListTrending] = useState<Movie[] | null>();
