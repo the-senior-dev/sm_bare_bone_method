@@ -14,10 +14,17 @@ We provide the starting code for this app so you can jump straight into the acti
 2. [COMPETENT] Add a `Search` and a `Pagination` to the MainPage
 3. [EXPERT] Add a global language switch to the page
 
+[Checkout how the final app should look like here]()
 
 ### Getting Started
 1. You will need an API Key to make the requests to the API. You can get one [here](https://developers.themoviedb.org/3/getting-started/introduction)
 2. Check the `package.json` to see the scripts available. Run `npm start` to run the app.
+
+
+### Recommendations
+1. Use the [React Dev Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) to inspect the component tree and data flow.
+2. Draw your component breakdown using a tool like [Excalidraw](https://excalidraw.com/).
+3. Use the **State Architecture Cheat sheet** to decide where to place your state.
 
 ----
 
