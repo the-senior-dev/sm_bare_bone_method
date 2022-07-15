@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { PrimaryButton } from "./styled";
+import backgroundImage from "../assets/search-header.png";
 
 interface SearchBarProps {
   setSearchText: (text: string) => void;
@@ -35,7 +36,7 @@ const SearchBarContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  background-image: url("/search-header.png");
+  background-image: url("${backgroundImage}");
   padding: 20px;
   box-sizing: border-box;
   margin-bottom: 20px;
