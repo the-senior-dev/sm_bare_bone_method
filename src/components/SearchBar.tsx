@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import backgroundImage from "../assets/search-header.png";
 
 export default function SearchBar() {
   return (
@@ -19,7 +20,7 @@ const SearchBarContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  background-image: url("/search-header.png");
+  background-image: url("${backgroundImage}");
   padding: 20px;
   box-sizing: border-box;
   margin-bottom: 20px;
