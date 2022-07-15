@@ -1,11 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import logoWhite from "../assets/logo-white.png";
-import { DarkModeContext } from "../store/context";
 
 export default function Footer() {
-  const context = useContext(DarkModeContext);
-
   return (
     <FooterContainer>
       <div>
