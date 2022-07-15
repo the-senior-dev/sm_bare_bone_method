@@ -1,7 +1,8 @@
 import React from "react";
 import { ApiError, Movie } from "../utils/typesApi";
 import SimpleMovieCard from "./SimpleMovieCard";
-import { MovieSliderContainer, SectionHeading } from "./styled";
+import { MovieSliderContainer } from "./styled";
+import SectionHeading from "./styled/SectionHeading";
 
 interface MovieListCardDisplayProps {
   movieList: Movie[] | null | undefined;

@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import logoWhite from "../assets/logo-white.png";
+import { DarkModeContext } from "../store/context";
 
 export default function Footer() {
+  const context = useContext(DarkModeContext);
+
   return (
     <FooterContainer>
       <div>
-        <FooterLink>Youtube</FooterLink>
-        <FooterLink>LinkedIn</FooterLink>
-        <FooterLink>Website</FooterLink>
-        <FooterLink>Dev.to</FooterLink>
-        <FooterLink>Medium</FooterLink>
+        <FooterLink href="/">Youtube</FooterLink>
+        <FooterLink href="/">LinkedIn</FooterLink>
+        <FooterLink href="/">Website</FooterLink>
+        <FooterLink href="/">Dev.to</FooterLink>
+        <FooterLink href="/">Medium</FooterLink>
       </div>
-      <FooterLogo src={logoWhite}></FooterLogo>© 1990-{new Date().getFullYear()}{" "}
-      by theSeniorDev.com
+      <FooterLogo src={logoWhite} alt="the-senior-dev"></FooterLogo>© 1990-
+      {new Date().getFullYear()} by theSeniorDev.com
     </FooterContainer>
   );
 }
@@ -27,11 +30,13 @@ const FooterLogo = styled.img`
 const FooterLink = styled.a`
   height: 60px;
   margin: 10px;
+  color: #dfe6e9;
+  text-decoration: none;
 `;
 
 const FooterContainer = styled.div`
   width: 100%;
-  background-color: #2d3436;
+  background-color: #202426;
   color: white;
   display: flex;
   align-items: center;

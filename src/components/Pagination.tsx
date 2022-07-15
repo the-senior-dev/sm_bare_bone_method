@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import { PrimaryButton } from "./styled";
+import PrimaryButton from "../components/styled/PrimaryButton";
+import { DarkModeContext } from "../store/context";
 
 interface PaginationProps {
   currentPage: number;
@@ -13,6 +14,8 @@ export default function Pagination({
   setCurrentPage,
   lastPage,
 }: PaginationProps) {
+  const context = useContext(DarkModeContext);
+
   return (
     <PaginationContainer>
       <PrimaryButton
@@ -27,7 +30,9 @@ export default function Pagination({
       >
         previous
       </PrimaryButton>
-      <PaginationNumber>{currentPage}</PaginationNumber>
+      <PaginationNumber color={context.theme.foreground}>
+        {currentPage}
+      </PaginationNumber>
       <PrimaryButton
         disabled={currentPage === lastPage}
         onClick={() => setCurrentPage(currentPage + 1)}
@@ -44,13 +49,14 @@ export default function Pagination({
   );
 }
 
-const PaginationNumber = styled.div`
+const PaginationNumber = styled.p`
   font-weight: 700;
   justify-content: center;
   font-size: 20px;
   align-items: center;
   padding-right: 20px;
   padding-left: 20px;
+  color: ${(props) => props.color};
 `;
 
 const PaginationContainer = styled.div`

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import { PrimaryButton } from "./styled";
+import PrimaryButton from "../components/styled/PrimaryButton";
+import { DarkModeContext } from "../store/context";
 
 interface SearchBarProps {
   setSearchText: (text: string) => void;
@@ -8,15 +9,18 @@ interface SearchBarProps {
 
 export default function SearchBar({ setSearchText }: SearchBarProps) {
   const [inputText, setInputText] = useState("Star Wars");
+  const context = useContext(DarkModeContext);
 
   return (
     <SearchBarContainer>
-      <SearchBarTitle>Welcome.</SearchBarTitle>
-      <SearchBarSubTitle>
+      <SearchBarTitle color={"#dfe6e9"}>Welcome.</SearchBarTitle>
+      <SearchBarSubTitle color={"#dfe6e9"}>
         Millions of movies, TV shows and people to discover. Explore now.
       </SearchBarSubTitle>
       <SearchWrapper>
         <SearchInput
+          color={context.theme.foreground}
+          backgroundColor={context.theme.background}
           value={inputText}
           onChange={(event) => setInputText(event.target.value)}
         ></SearchInput>
@@ -45,7 +49,7 @@ const SearchBarTitle = styled.h2`
   font-size: 3em;
   font-weight: 700;
   line-height: 1;
-  color: white;
+  color: ${(props) => props.color};
   margin-bottom: 10px;
 `;
 
@@ -53,13 +57,18 @@ const SearchBarSubTitle = styled.h3`
   font-size: 2em;
   font-weight: 600;
   margin: 0;
-  color: white;
+  color: ${(props) => props.color};
   margin-bottom: 40px;
 `;
 
 // NOTE: You can use the components bellow to go quicker
 
-const SearchInput = styled.input`
+interface SearchInputProps {
+  backgroundColor: string;
+  color: string;
+}
+
+const SearchInput = styled.input<SearchInputProps>`
   display: flex;
   border-radius: 0px;
   border-width: 0px;
@@ -69,8 +78,9 @@ const SearchInput = styled.input`
   margin-right: 10px;
   padding-left: 10px;
   font-size: 1rem;
-  color: #636e72;
+  color: ${(props) => props.color};
   font-weight: 300;
+  background-color: ${(props) => props.backgroundColor};
 `;
 
 const SearchWrapper = styled.div`

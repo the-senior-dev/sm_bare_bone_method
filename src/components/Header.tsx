@@ -20,6 +20,10 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  top: 0px;
+  z-index: 10;
+  height: 68px;
 `;
 
 const HeaderWrapper = styled.div`
