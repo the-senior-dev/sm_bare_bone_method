@@ -14,11 +14,14 @@ We provide the starting code for this app so you can jump straight into the acti
 2. [COMPETENT] Add a `Search` and a `Pagination` to the MainPage
 3. [EXPERT] Add a global language switch to the page
 
-[Checkout how the final app should look like here](/the-senior-dev/sm_bare_bone_method#extra-resources)
+**📌 Checkout how the final app should look like at the bottom of this page**
 
 ### Getting Started
 1. You will need an API Key to make the requests to the API. You can get one [here](https://developers.themoviedb.org/3/getting-started/introduction)
-2. Check the `package.json` to see the scripts available. Run `npm start` to run the app.
+2. Check the `package.json` to see the scripts available. 
+   1. Run `npm start` to run the app
+   2. Run `npm test` to run the unit tests
+   3. Run `npm run cy:open` to run the e2e tests
 
 
 ### Recommendations
