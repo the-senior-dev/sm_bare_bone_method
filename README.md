@@ -12,7 +12,7 @@ We provide the starting code for this app so you can jump straight into the acti
 ## Challenges:
 1. [COMPETENT] Extend the `MainPage` to contain a view of the `Now Playing` movies
 2. [COMPETENT] Add a `Search` and a `Pagination` to the MainPage
-3. [EXPERT] Add a global language switch to the page
+3. [EXPERT] Add a dark/light mode to the page
 
 **📌 Checkout how the final app should look like at the bottom of this page**
 
