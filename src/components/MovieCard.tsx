@@ -16,7 +16,7 @@ export default function MovieCard({ movie }: MovieCardProps) {
     navigate(`/movie/${movie.id}`);
   };
 
-  function plotShorten(text: string, length: number = 250) {
+  function plotShorten(text: string, length = 250) {
     const shortText = _.take(text.split(""), length).join("");
     return shortText + "...";
   }
