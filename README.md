@@ -82,9 +82,11 @@ Use the bare bone method to structure your component and data flow before stylin
 
 ### 3. [EXPERT] Add a global language switch to the page
 #### Acceptance Criteria
-1. In the `Header`, add a dropdown that will change the language of the whole website
-2. All the component should switch language when the dropdown is selected, across all pages
-3. The language choice should be persisted in `localStorage` 
+1. In the `Header`, add a dropdown that will change the theme of the whole website
+2. All the component should switch color to match the dark/light mode
+3. The theme choice should be persisted in `localStorage` 
+
+> Light-on-dark color scheme —also called black mode, dark mode, dark theme, night mode, or lights-out (mode)— is a color scheme that uses light-colored text, icons, and graphical user interface elements on a dark background. -- Wikipedia
 
 ![language-switch](examples/language-switch.png)
 
