@@ -10,11 +10,11 @@ In this Action Item you will:
 We provide the starting code for this app so you can jump straight into the action. The following three challenges are based on **REAL interview tasks**:
 
 ## Challenges:
-1. [COMPETENT] Extend the `MainPage` to contain a view of the `Now Playing` movies
-2. [COMPETENT] Add a `Search` and a `Pagination` to the MainPage
-3. [EXPERT] Add a `dark/light` switch to the whole app
+1. 💪[COMPETENT] Extend the `MainPage` to contain a view of the `Now Playing` movies
+2. 🏋🏽‍♀️[PROFICIENT] Add a `Search` and a `Pagination` to the MainPage
+3. 🔥[EXPERT] Add a `dark/light` switch to the whole app
 
-**📌 Checkout how the final app should look like at the bottom of this page**
+**📌 [Click here to see the final result LIVE](https://bare-bone-final.netlify.app/) **
 
 ### Getting Started
 1. You will need an API Key to make the requests to the API. You can get one [here](https://developers.themoviedb.org/3/getting-started/introduction)
@@ -22,7 +22,7 @@ We provide the starting code for this app so you can jump straight into the acti
    1. Run `npm start` to run the app
    2. Run `npm test` to run the unit tests
    3. Run `npm run cy:open` to run the `e2e` tests
-
+3. [The starting point looks like this](https://bare-bone-starting-point.netlify.app/)
 
 ### Recommendations
 1. Use the [React Dev Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) to inspect the component tree and data flow.
