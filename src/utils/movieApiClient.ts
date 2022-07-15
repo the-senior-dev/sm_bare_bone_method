@@ -104,6 +104,26 @@ class ApiClient {
       } as ApiError;
     }
   }
+
+  async getMovieListUpcoming(): Promise<ApiResponse<Movie> | ApiError> {
+    try {
+      const response = await fetch(
+        `${apiUrl}/movie/upcoming?api_key=${this.apiKey}`,
+        {
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
+      const data: ApiResponse<Movie> = await response.json();
+      return data;
+    } catch (err) {
+      console.error(err);
+      return {
+        message: "An error has ocurred while fetching data",
+      } as ApiError;
+    }
+  }
 }
 
 // The Singleton Pattern (Api Client, Db Client)
