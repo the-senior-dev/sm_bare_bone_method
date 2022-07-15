@@ -11,7 +11,7 @@
             background_secondary: "#ffffff",
         },
         dark: {
-            foreground: "#2d3436",
+            foreground: "#dfe6e9",
             background: "#2d3436",
             background_secondary: "#636e72",
         },
