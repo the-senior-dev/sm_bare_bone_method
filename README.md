@@ -136,12 +136,4 @@ Use the `Bare Bone Method` to structure your component and data flow before styl
 If you have issues with the Action Item, you can ask for help in the [Community](https://community.theseniordev.com/) or in the [Weekly Q&A’s](https://calendar.google.com/calendar/u/0?cid=Y19kbGVoajU1Z2prNXZmYmdoYmxtdDRvN3JyNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t).
 
 
-### Extra Resources
-
-1. Low fidelity view of the finished app
-
-![finished-app](examples/complete-low-fidelity.png)
-
-
-
 ### Made with :orange_heart: in Berlin by @TheSeniorDev
