@@ -46,7 +46,7 @@ Use the `Bare Bone Method` to structure your component and data flow before styl
 
 ##### 💡 Hint: you can reuse the same component if you "lift state", extract the business logic and isolate the __rendering__ into a stateless component.
 
-### Solution: Task 1
+#### Solution: Task 1.1
 
 - **📝 [Step by Step Instructions](examples/solution_one/SOLUTION_ONE.md)**
 - **🖥️ [VIDEO SOLUTION - Adding the Upcoming Movies](https://www.loom.com/share/670bb6de39b44d6d937f937949698b6f)**
@@ -55,6 +55,7 @@ Use the `Bare Bone Method` to structure your component and data flow before styl
 
 ####  1.2 [PROFICIENT][BONUS] Refactor and apply `Separation of Concerns`
 
+#### Solution: Task 1.2
 - **🖥️ [VIDEO SOLUTION - Separation of concerns](https://www.loom.com/share/09fd272da95845d39d6736c12e14c025)**
 - **🗂️ [CODE SOLUTION - Separation of concerns](https://github.com/the-senior-dev/sm_bare_bone_method/tree/feature/solution-one-extension)**
 
@@ -90,7 +91,7 @@ Use the bare bone method to structure your component and data flow before stylin
 
 ----
 
-### 3. [EXPERT] Add a global theme switch to the application
+### 3. [EXPERT] Add a global dark mode switch to the application
 #### Acceptance Criteria
 1. In the `Header`, add a dropdown that will change the theme of the whole website
 2. All the component should switch color to match the `dark/light` mode
