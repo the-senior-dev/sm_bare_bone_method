@@ -118,6 +118,7 @@ Use the `Bare Bone Method` to structure your component and data flow before styl
 
 #### Optional Acceptance Criteria:
 - the `dark mode` switch should pickup the settings from local storage if it was configured previously
+- use `x-state` instead of `useState` for the them state switch
 
 
 #### Solution: Task 3 - Add a Dark Mode Switch
