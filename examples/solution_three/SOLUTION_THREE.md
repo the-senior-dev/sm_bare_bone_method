@@ -133,10 +133,7 @@ const ToggleLabel = styled.span`
 `;
 ```
 
-Ours looks like this:
-![header-with-toggle](examples/solution_three/header-with-toggle.png)
-
-6. Connect all the relevant components to `Context` and make their styles dynamic.
+1. Connect all the relevant components to `Context` and make their styles dynamic.
 
 **Here we leverage the `HOC` pattern and `JSS` to create dynamic components that can change styles depending on their props.**
 
