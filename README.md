@@ -66,30 +66,37 @@ Use the `Bare Bone Method` to structure your component and data flow before styl
 #### Acceptance Criteria
 2.1. Add the missing parts and the functionality to the `SearchBar` component
 - an input field where the users can type the `Movie` they want to search for
-- a button that when pressed will cause a refetch of the movies that matched the search
+- a button that when pressed will cause a re-fetch of the movies that matched the search
 
-![search-bar-close-up](examples/search_bar_close_up.png)
+![search-bar-final](examples/solution_one/search-final.png)
 
 2.2. Add a `Pagination` for the list of movies:
 - the `pagination` should have a first, next, previous and last `button`
 - clicking on the buttons should cause a refetch of the right movie page
 
-![search-bar-pagination](examples/pagination_close_up.png)
+![pagination-final](examples/solution_one/pagination-final.png)
+
+##### 💡 Hint: take time to understand where the pagination state should live. You might need to "lift the state" in order to keep your components clean.
+
+##### 💡 Hint: you might need to extend the [movieApiClient] to fetch a certain page of movie results. Check out [the endpoint documentation here](https://developers.themoviedb.org/3/search/search-movies).
 
 
-Use the bare bone method to structure your component and data flow before styling. Check out how we do that here. [VIDEO WITH BARE BONE HERE]
 
-###### Hint: you might need to extend the [movieApiClient] to fetch a certain page of movie results. Check out [the endpoint documentation here](https://developers.themoviedb.org/3/search/search-movies).
-
-###### Hint: take time to understand where the pagination state should live. You might need to "lift the state" in order to keep your components clean.
-
-### Solution: Task 1
-1. Search Bar - Solution Code
-2. Search Bar - Solution Video
-3. Pagination - Solution Code
-4. Pagination - Solution Video
+#### Solution: Task 2 - Add Search & Pagination
+- **📝 [Step by Step Instructions](examples/solution_two/SOLUTION_TWO.md)**
+- **🖥️ [VIDEO SOLUTION - 2.1 Component Structure](https://www.loom.com/share/b156118a89c74e94882c44484c3d9d44)**
+- **🖥️ [VIDEO SOLUTION - 2.2 State Architecture](https://www.loom.com/share/74583dc2efe844429ab8bfb6f76de956)**
+- **🖥️ [VIDEO SOLUTION - 2.3 State Implementation](https://www.loom.com/share/0fca5c23551a4e0d8656c67272e6b9a5)**
+- **🖥️ [VIDEO SOLUTION - 2.4 Adding Functionality](https://www.loom.com/share/aa6f38b850994db0bebc07e62be2f812)**
+- **🖥️ [VIDEO SOLUTION - 2.5 App Overview](https://www.loom.com/share/9f5f83d3699b45719d2272881c384b8d)**
+- **🗂️ [CODE SOLUTION - Adding Search](https://github.com/the-senior-dev/sm_bare_bone_method/tree/feature/solution-two)**
+  
+#### Bonus: Persisting state on page change using query params
+- **🖥️ [VIDEO SOLUTION - 2.6 Use Query Params to keep state between page change](https://www.loom.com/share/31b700842d984a9b9ff4f578406b71cc)**
 
 ----
+
+
 
 ### 3. [EXPERT] Add a global dark mode switch to the application
 #### Acceptance Criteria
@@ -99,27 +106,25 @@ Use the bare bone method to structure your component and data flow before stylin
 4. Extra: use a `complex state machine` for the them state like `useReducer`, `immer.js` or `x-state`
 > Light-on-dark color scheme —also called black mode, dark mode, dark theme, night mode, or lights-out (mode)— is a color scheme that uses light-colored text, icons, and graphical user interface elements on a dark background. -- Wikipedia
 
+**[VIDEO - Dark Mode Feature Introduction](https://www.loom.com/share/121b83e6fda6404daa124d17f27984cb)**
+
 ![dark-mode-switch](examples/dark-mode-switch.png)
 
+##### 💡 Hint: take time to understand where the state of the state of the dark mode will live and how you will distribute it to all the components.
+
+##### 💡 Hint: although we leave the choice up to you, we recommend a light-weight state management solution like `React.Context`.
+
 #### Optional Acceptance Criteria:
-- the theme switch should pickup the browser default language if not configured previously
+- the dark mode switch should pickup the settings from local storage if it was configured previously
 
-###### Hint: take time to understand where the state of the state of the dark mode will live and how you will distribute it to all the components.
 
-###### Hint: although we leave the choice up to you, we recommend a light-weight state management solution like `React.Context`.
 
-### Solution
-1. Code Solution - Language Switch
-2. Video Solution - Language Switch
+#### Solution: Task 3 - Add a Dark Mode Switch
+
+- **🖥️ [VIDEO SOLUTION - 2.1 Component Structure](https://www.loom.com/share/b156118a89c74e94882c44484c3d9d44)**
+- **🗂️ [CODE SOLUTION - Adding Dark Mode Switch](https://github.com/the-senior-dev/sm_bare_bone_method/tree/feature/solution-three)**
 
 ----
-
-
-## Extra Challenge: Amazon Prime Style Movie Page
-
-1. What are some improvement you would propose to the app?
-2. Setup Git Hooks with Husky
-3. Take the Action Item Assessment
 
 ### Getting Help
 
