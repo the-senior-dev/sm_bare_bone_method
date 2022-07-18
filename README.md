@@ -7,14 +7,16 @@ In this Action Item you will:
 
 ![bare-bone-method](examples/the_bare_bone_method.png)
 
-We provide the starting code for this app so you can jump straight into the action. The following three challenges are based on **REAL interview tasks**:
+The following three challenges are based on **REAL interview tasks**:
 
 ## Challenges:
 1. 💪[COMPETENT] Extend the `MainPage` to contain a view of the `Now Playing` movies
 2. 🏋🏽‍♀️[PROFICIENT] Add a `Search` and a `Pagination` to the MainPage
 3. 🔥[EXPERT] Add a `dark/light` switch to the whole app
 
-**📌 [Click here to see the final result LIVE](https://bare-bone-final.netlify.app/) **
+**📌[Click here to see the final result LIVE](https://bare-bone-final.netlify.app/)**
+
+We provide the starting code for this app so you can jump straight into the action. 
 
 ### Getting Started
 1. You will need an API Key to make the requests to the API. You can get one [here](https://developers.themoviedb.org/3/getting-started/introduction)
@@ -27,7 +29,7 @@ We provide the starting code for this app so you can jump straight into the acti
 ### Recommendations
 1. Use the [React Dev Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) to inspect the component tree and data flow.
 2. Draw your component breakdown using a tool like [Excalidraw](https://excalidraw.com/).
-3. Use the **State Architecture Cheat sheet** to decide where to place your state.
+3. Use the **[State Architecture Cheat sheet](https://drive.google.com/file/d/1KtUkq7VfOjmAnH0jbrOScYQuI_7NZHCM/view?usp=sharing)** to decide where to place your state.
 
 ----
 
@@ -38,15 +40,16 @@ We provide the starting code for this app so you can jump straight into the acti
 1. The `MainPage` should display a section with the upcoming movies
 2. The style should be the same as the [TrendingNow](src/components/TrendingNow.tsx) component - you can just copy that one.
 
-Use the bare bone method to structure your component and data flow before styling. Check out how we do that here. [VIDEO WITH BARE BONE HERE]
+Use the `Bare Bone Method` to structure your component and data flow before styling. Check out how we do that here. [VIDEO WITH BARE BONE HERE]
 
-###### Hint: you might need to extend the [movieApiClient] and add a method to fetch a list of the movies upcoming. Check out [the endpoint documentation here](https://developers.themoviedb.org/3/movies/get-upcoming).
+##### 💡 Hint: you might need to extend the [movieApiClient] and add a method to fetch a list of the movies upcoming. Check out [the endpoint documentation here](https://developers.themoviedb.org/3/movies/get-upcoming).
 
-###### Hint: you can reuse the same component if you "lift state", extract the business logic and isolate the __rendering__ into a stateless component.
+##### 💡 Hint: you can reuse the same component if you "lift state", extract the business logic and isolate the __rendering__ into a stateless component.
 
 ### Solution: Task 1
-1. Task 1 - Solution Code
-2. Task 1 - Video Solution Here
+**🚀 [VIDEO SOLUTION - Adding the Upcoming Movies](https://www.loom.com/share/f4b9fedd369d416e9c06d2c332b85c58)**
+**🚀 [CODE SOLUTION - Adding the Upcoming Movies](https://github.com/the-senior-dev/sm_bare_bone_method/tree/feature/solution-one)**
+
 
 ----
 
@@ -80,23 +83,22 @@ Use the bare bone method to structure your component and data flow before stylin
 
 ----
 
-### 3. [EXPERT] Add a global language switch to the page
+### 3. [EXPERT] Add a global theme switch to the application
 #### Acceptance Criteria
 1. In the `Header`, add a dropdown that will change the theme of the whole website
-2. All the component should switch color to match the dark/light mode
+2. All the component should switch color to match the `dark/light` mode
 3. The theme choice should be persisted in `localStorage` 
-
+4. Extra: use a `complex state machine` for the them state like `useReducer`, `immer.js` or `x-state`
 > Light-on-dark color scheme —also called black mode, dark mode, dark theme, night mode, or lights-out (mode)— is a color scheme that uses light-colored text, icons, and graphical user interface elements on a dark background. -- Wikipedia
 
 ![dark-mode-switch](examples/dark-mode-switch.png)
 
 #### Optional Acceptance Criteria:
-- the language switch should pickup the browser default language if not configured previously
-- the api calls should fetch data in the user preferred language when possible
+- the theme switch should pickup the browser default language if not configured previously
 
-###### Hint: take time to understand where the state of the localization will live and how you will distribute it to all the component.
+###### Hint: take time to understand where the state of the state of the dark mode will live and how you will distribute it to all the components.
 
-###### Hint: although we leave the choice up to you, we recommend a light-weight state management solution like React.Context.
+###### Hint: although we leave the choice up to you, we recommend a light-weight state management solution like `React.Context`.
 
 ### Solution
 1. Code Solution - Language Switch
@@ -105,7 +107,7 @@ Use the bare bone method to structure your component and data flow before stylin
 ----
 
 
-## Wrapping up
+## Extra Challenge: Amazon Prime Style Movie Page
 
 1. What are some improvement you would propose to the app?
 2. Setup Git Hooks with Husky
