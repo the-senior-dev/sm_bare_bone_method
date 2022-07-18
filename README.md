@@ -34,10 +34,10 @@ We provide the starting code for this app so you can jump straight into the acti
 ----
 
 ### 1. [COMPETENT] Extend the `MainPage` to contain a view of the `Upcoming` movies
-![](examples/now-playing-low-fidelity.png)
+![upcoming-movies](examples/solution_one/upcoming_movies.png)
 
 #### Acceptance Criteria
-1. The `MainPage` should display a section with the upcoming movies
+1. The `MainPage` should display a section with the `Upcoming Movies` under the `TrendingNow` section
 2. The style should be the same as the [TrendingNow](src/components/TrendingNow.tsx) component - you can just copy that one.
 
 Use the `Bare Bone Method` to structure your component and data flow before styling. Check out how we do that here. [VIDEO WITH BARE BONE HERE]
@@ -47,9 +47,16 @@ Use the `Bare Bone Method` to structure your component and data flow before styl
 ##### 💡 Hint: you can reuse the same component if you "lift state", extract the business logic and isolate the __rendering__ into a stateless component.
 
 ### Solution: Task 1
-**🚀 [VIDEO SOLUTION - Adding the Upcoming Movies](https://www.loom.com/share/f4b9fedd369d416e9c06d2c332b85c58)**
-**🚀 [CODE SOLUTION - Adding the Upcoming Movies](https://github.com/the-senior-dev/sm_bare_bone_method/tree/feature/solution-one)**
 
+- **📝 [Step by Step Instructions](examples/solution_one/SOLUTION_ONE.md)**
+- **🖥️ [VIDEO SOLUTION - Adding the Upcoming Movies](https://www.loom.com/share/670bb6de39b44d6d937f937949698b6f)**
+- **🗂️ [CODE SOLUTION - Adding the Upcoming Movies](https://github.com/the-senior-dev/sm_bare_bone_method/tree/feature/solution-one)**
+
+
+####  1.2 [PROFICIENT][BONUS] Refactor and apply `Separation of Concerns`
+
+- **🖥️ [VIDEO SOLUTION - Separation of concerns](https://www.loom.com/share/09fd272da95845d39d6736c12e14c025)**
+- **🗂️ [CODE SOLUTION - Separation of concerns](https://github.com/the-senior-dev/sm_bare_bone_method/tree/feature/solution-one-extension)**
 
 ----
 
