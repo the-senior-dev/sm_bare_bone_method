@@ -14,7 +14,9 @@ The following three challenges are based on **REAL interview tasks**:
 2. 🏋🏽‍♀️[PROFICIENT] Add a `Search` and a `Pagination` to the MainPage
 3. 🔥[EXPERT] Add a `dark/light` switch to the whole app
 
-**📌[Click here to see the final result LIVE](https://bare-bone-final.netlify.app/)**
+#### What are we building?
+- **🖥️ [VIDEO PREVIEW - What are we building?](https://www.loom.com/share/ccc78e8f7ce54dfcb198d5fd9531fa70)**
+- **📌[Final Result LIVE](https://bare-bone-final.netlify.app/)**
 
 We provide the starting code for this app so you can jump straight into the action. 
 
@@ -103,25 +105,28 @@ Use the `Bare Bone Method` to structure your component and data flow before styl
 1. In the `Header`, add a dropdown that will change the theme of the whole website
 2. All the component should switch color to match the `dark/light` mode
 3. The theme choice should be persisted in `localStorage` 
-4. Extra: use a `complex state machine` for the them state like `useReducer`, `immer.js` or `x-state`
+4. BONUS: use a `complex state machine` for the them state like `useReducer`, `immer.js` or `x-state`
 > Light-on-dark color scheme —also called black mode, dark mode, dark theme, night mode, or lights-out (mode)— is a color scheme that uses light-colored text, icons, and graphical user interface elements on a dark background. -- Wikipedia
 
 **[VIDEO - Dark Mode Feature Introduction](https://www.loom.com/share/121b83e6fda6404daa124d17f27984cb)**
 
-![dark-mode-switch](examples/dark-mode-switch.png)
+![dark-mode-switch-final](examples/solution_three/header-with-toggle.png)
 
 ##### 💡 Hint: take time to understand where the state of the state of the dark mode will live and how you will distribute it to all the components.
 
 ##### 💡 Hint: although we leave the choice up to you, we recommend a light-weight state management solution like `React.Context`.
 
 #### Optional Acceptance Criteria:
-- the dark mode switch should pickup the settings from local storage if it was configured previously
-
+- the `dark mode` switch should pickup the settings from local storage if it was configured previously
 
 
 #### Solution: Task 3 - Add a Dark Mode Switch
-
-- **🖥️ [VIDEO SOLUTION - 2.1 Component Structure](https://www.loom.com/share/b156118a89c74e94882c44484c3d9d44)**
+- **📝 [Step by Step Instructions](examples/solution_three/SOLUTION_THREE.md)**
+- **🖥️ [VIDEO SOLUTION - 3.0 Choosing Colors](https://www.loom.com/share/308d69bb1acd41359cf308b263462d7f)**
+- **🖥️ [VIDEO SOLUTION - 3.1 `React.Context` Overview](https://www.loom.com/share/3ef5f16063644582b39ae37b276f9690)**
+- **🖥️ [VIDEO SOLUTION - 3.2 Creating a Context](https://www.loom.com/share/87fd5b58605d4f3c9a1a732c76e60cec)**
+- **🖥️ [VIDEO SOLUTION - 3.3 Connect Context + Component Tree](https://www.loom.com/share/7f79aec6acd245a5b27707bc01b60e6a)**
+- **🖥️ [VIDEO SOLUTION - 3.4 Final Result](https://www.loom.com/share/a1db587024144e0bb38426ce63eebe4b)**
 - **🗂️ [CODE SOLUTION - Adding Dark Mode Switch](https://github.com/the-senior-dev/sm_bare_bone_method/tree/feature/solution-three)**
 
 ----
