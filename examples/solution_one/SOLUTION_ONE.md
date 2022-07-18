@@ -20,3 +20,7 @@
    2. Copy and refactor the `getMovieListNowPlaying` method - check the API docs
    3. Clean your code, and you are done
 
+### Separation of concerns
+1. Create a movie card display component with the same jsx
+2. Pass all the dynamic parts as props: movieList, error, heading
+3. Replace it in the `Upcoming` and `Trending` now components
