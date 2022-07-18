@@ -21,7 +21,7 @@ The following three challenges are based on **REAL interview tasks**:
 We provide the starting code for this app so you can jump straight into the action. 
 
 ### Getting Started
-1. You will need an API Key to make the requests to the API. You can get one [here](https://developers.themoviedb.org/3/getting-started/introduction)
+1. 🔑 You will need an API Key to make the requests to the API. You can get one [here](https://developers.themoviedb.org/3/getting-started/introduction). Add the key to [`movieApiClient.ts`](src/utils/movieApiClient.ts)
 2. Check the `package.json` to see the scripts available. 
    1. Run `npm start` to run the app
    2. Run `npm test` to run the unit tests
