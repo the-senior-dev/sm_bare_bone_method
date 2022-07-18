@@ -7,8 +7,11 @@ import {
 } from "./typesApi";
 import placeHolder from "../assets/movie-placeholder.png";
 
-const apiKey = "affc0edf3f789f9357f1d525ba2cdd23";
+// !! ADD YOUR API KEY BELOW !!
+const apiKey = "___YOUR_API_KEY_HERE__"; // ADD THE KEY HERE!
+
 const apiUrl = "https://api.themoviedb.org/3";
+
 class ApiClient {
   private apiKey: string;
   public apiUrl: string;
