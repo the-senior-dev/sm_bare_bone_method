@@ -1,6 +1,4 @@
-### Step by Step Solution
-
-
+### Step by Step Solution: Task 3
 1. Check out `ReactContext` documentation
 2. Chose your colors, see video. This are the ones we chose:
 ```typescript
@@ -140,7 +138,7 @@ Ours looks like this:
 
 6. Connect all the relevant components to `Context` and make their styles dynamic.
 
-### Here we leverage the HOC pattern and JSS to create dynamic components that can change styles depending on their props.
+**Here we leverage the `HOC` pattern and `JSS` to create dynamic components that can change styles depending on their props.**
 
 
 See an example with the `AppContainer`:
