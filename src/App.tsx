@@ -7,6 +7,8 @@ import Header from "./components/Header";
 import { DarkModeContext, Theme, themeList, ThemeName } from "./store/context";
 import AppContainer from "./components/styled/AppContainer";
 
+console.log(process.env.DB_HOST);
+
 export default function App() {
   const [activeTheme, setActiveTheme] = useState(themeList.light);
 
