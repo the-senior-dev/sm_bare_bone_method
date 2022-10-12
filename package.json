@@ -1,7 +1,7 @@
 {
-  "name": "singlepageappsessentials-bogdanned",
+  "name": "bare-bone-method",
   "version": "1.0.0",
-  "description": "Follow the steps to setup a single page app yourself using fundamental knowledge.",
+  "description": "Use the bare bone mehtod to break down UI in component structures and distribute state.",
   "main": "index.js",
   "directories": {
     "example": "examples"
@@ -16,15 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CodeWithDragos/singlepageappsessentials-bogdanned.git"
+    "url": "git+https://github.com/theseniordev/sm_bare_bone_method.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CodeWithDragos/singlepageappsessentials-bogdanned/issues"
+    "url": "https://github.com/theseniordev/sm_bare_bone_method/issues"
   },
-  "homepage": "https://github.com/CodeWithDragos/singlepageappsessentials-bogdanned#readme",
+  "homepage": "https://github.com/theseniordev/sm_bare_bone_method#readme",
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
@@ -39,7 +39,6 @@
     "@types/styled-components": "^5.1.14",
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.30.6",
-    "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.2.0",
     "cypress": "^10.3.0",
