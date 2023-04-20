@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { ChangeEventHandler, useContext, useRef, useState } from "react";
 import styled from "styled-components";
 import chroma from "chroma-js";
 import PrimaryButton from "../components/styled/PrimaryButton";
@@ -6,12 +6,23 @@ import { DarkModeContext } from "../store/context";
 import backgroundImage from "../assets/search-header.png";
 
 interface SearchBarProps {
-  setSearchText: (text: string) => void;
+  onSearchCallback: () => void;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+  searchText: string;
 }
 
-export default function SearchBar({ setSearchText }: SearchBarProps) {
-  const [inputText, setInputText] = useState("Star Wars");
+export default function SearchBar({
+  onSearchCallback,
+  searchText,
+  onChange,
+}: SearchBarProps) {
   const context = useContext(DarkModeContext);
+
+  function onKeyDown(event: React.KeyboardEvent): void {
+    if (event.code === "Enter") {
+      onSearchCallback();
+    }
+  }
 
   return (
     <SearchBarContainer>
@@ -21,14 +32,14 @@ export default function SearchBar({ setSearchText }: SearchBarProps) {
       </SearchBarSubTitle>
       <SearchWrapper>
         <SearchInput
+          id="search-bar-input"
           color={context.theme.foreground}
           backgroundColor={context.theme.background}
-          value={inputText}
-          onChange={(event) => setInputText(event.target.value)}
+          value={searchText}
+          onChange={onChange}
+          onKeyDown={onKeyDown}
         ></SearchInput>
-        <PrimaryButton onClick={() => setSearchText(inputText)}>
-          Search
-        </PrimaryButton>
+        <PrimaryButton onClick={onSearchCallback}>Search</PrimaryButton>
       </SearchWrapper>
     </SearchBarContainer>
   );

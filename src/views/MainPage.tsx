@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import React, { ReactEventHandler, useEffect, useRef, useState } from "react";
+import { useLocation, useSearchParams } from "react-router-dom";
 import MovieList from "../components/MovieList";
 import Pagination from "../components/Pagination";
 import SearchBar from "../components/SearchBar";
@@ -11,9 +11,13 @@ import movieApiClient from "../utils/movieApiClient";
 
 export default function MainPage() {
   // Getting the search params from the url
+  const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const searchInputParam = searchParams.get("search") || "Godfather";
   const currentPageParam = Number(searchParams.get("page")) || 1;
+
+  // scroll resotration
+  const fieldRef = useRef<HTMLInputElement>(null);
 
   const [currentPage, setCurrentPage] = useState<number>(currentPageParam);
   const [movieList, setMovieList] = useState<Movie[]>([]);
@@ -34,11 +38,36 @@ export default function MainPage() {
   useEffect(() => {
     getMovies();
     setSearchParams({ search: searchText, page: currentPage.toString() });
-  }, [currentPage, searchText]);
+    // restore scroll to top
+    fieldRef.current?.scrollIntoView();
+  }, [currentPage]);
+
+  // updated state when location changes
+  useEffect(() => {
+    const searchInputParam = searchParams.get("search") || "Godfather";
+    const currentPageParam = Number(searchParams.get("page")) || 1;
+    setSearchText(searchInputParam);
+    setCurrentPage(currentPageParam);
+  }, [location]);
+
+  // set the page to 1 when a new search is triggered
+  function onSearch() {
+    getMovies();
+    setCurrentPage(1);
+    fieldRef.current?.scrollIntoView();
+  }
+
+  function onChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setSearchText(event.target.value);
+  }
 
   return (
-    <PageContainer>
-      <SearchBar setSearchText={setSearchText} />
+    <PageContainer ref={fieldRef}>
+      <SearchBar
+        onSearchCallback={onSearch}
+        searchText={searchText}
+        onChange={onChange}
+      />
       <MovieList movieList={movieList} error={error} />
       <Pagination
         currentPage={currentPage}
