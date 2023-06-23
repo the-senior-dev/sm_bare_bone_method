@@ -1,23 +1,24 @@
 import React, { useContext } from "react";
 import Toggle from "react-toggle";
 import styled from "styled-components";
-import { DarkModeContext, themeList, ThemeName } from "../store/context";
+import { useDispatch, useSelector } from "react-redux";
+import { themeList } from "../store/theme";
+import { ThemeState, toggleTheme } from "../store/reduxStore/themeSlice";
 
 export default function DarkModeToggle() {
-  const context = useContext(DarkModeContext);
+  //const { theme, toggleTheme } = useContext(DarkModeContext);
+  const theme = useSelector((state: ThemeState) => state.theme);
+  const dispatch = useDispatch();
 
   return (
     <ToggleContainer>
       <Toggle
-        defaultChecked={context.theme === themeList.dark}
+        defaultChecked={theme === themeList.dark}
         onChange={() => {
-          if (context.theme === themeList.dark) {
-            context.setTheme(ThemeName.LIGHT);
-          } else {
-            context.setTheme(ThemeName.DARK);
-          }
+          dispatch(toggleTheme());
         }}
       />
+
       <ToggleLabel>Dark Mode</ToggleLabel>
     </ToggleContainer>
   );

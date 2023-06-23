@@ -7,6 +7,8 @@ import movieApiClient from "../utils/movieApiClient";
 import { Movie } from "../utils/typesApi";
 import MovieCardContainer from "./styled/MovieCardContainer";
 import { DarkModeContext } from "../store/context";
+import { RootState } from "../store/reduxStore/store";
+import { useSelector } from "react-redux";
 
 interface MovieCardProps {
   movie: Movie;
@@ -14,7 +16,9 @@ interface MovieCardProps {
 
 export default function MovieCard({ movie }: MovieCardProps) {
   const navigate = useNavigate();
-  const context = useContext(DarkModeContext);
+  // const context = useContext(DarkModeContext);
+
+  const theme = useSelector((state: RootState) => state.themeReducer.theme);
 
   const onCardClick = () => {
     navigate(`/movie/${movie.id}`);
@@ -38,15 +42,15 @@ export default function MovieCard({ movie }: MovieCardProps) {
       <MovieCardSummary>
         <MovieTitle
           data-testid={`movie-card-title-${movie.id}`}
-          color={context.theme.foreground}
+          color={theme.foreground}
         >
           {movie.title}
         </MovieTitle>
 
-        <MovieDate color={context.theme.foreground}>
+        <MovieDate color={theme.foreground}>
           Release Date: {moment(movie.release_date).format("MMM Do YY")}
         </MovieDate>
-        <MoviePlot color={context.theme.foreground}>
+        <MoviePlot color={theme.foreground}>
           Plot: {plotShorten(movie.overview)}
         </MoviePlot>
       </MovieCardSummary>
