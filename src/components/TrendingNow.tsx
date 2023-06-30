@@ -12,7 +12,7 @@ export default function TrendingNow() {
   useEffect(() => {
     movieApiClient.getMovieListNowPlaying().then((data) => {
       if (isApiError(data)) {
-        setFetchError(data);
+        setFetchError({ message: data.message, isError: true });
       } else {
         setMovieListTrending(data.results);
       }
@@ -28,7 +28,7 @@ export default function TrendingNow() {
             <SimpleMovieCard movieData={mov} key={mov.id} />
           ))}
       </TrendingContainer>
-      <p>{error?.message}</p>
+      {error && <p>{error?.message}</p>}
     </div>
   );
 }

@@ -13,9 +13,9 @@ const apiKey = "___YOUR_API_KEY_HERE__"; // ADD THE KEY HERE!
 const apiUrl = "https://api.themoviedb.org/3";
 
 class ApiClient {
-  private apiKey: string;
+  public apiKey: string;
   public apiUrl: string;
-  private imageUrl = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
+  public imageUrl = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
   constructor(apiKey: string, apiUrl: string) {
     this.apiKey = apiKey;
     this.apiUrl = apiUrl;

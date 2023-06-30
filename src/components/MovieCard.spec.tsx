@@ -1,54 +1,69 @@
 import React from "react";
-import MovieCard from "./MovieCard";
-import { fireEvent, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
-
+import { render, fireEvent, screen } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
+import { BrowserRouter } from "react-router-dom";
+import MovieCard from "./MovieCard"; //replace with actual relative path
 import { Movie } from "../utils/typesApi";
-import { render } from "../utils/test-utils"; // custom render implementation
 
-// Mock for useNavigate
-const mockedUsedNavigate = jest.fn();
+const mockMovie: Movie = {
+  adult: false,
+  original_title: "Test Original Movie",
+  poster_path: "/test.jpg",
+  id: 1,
+  release_date: "2022-02-02",
+  title: "Test Movie",
+  overview:
+    "This is a test movie overview. It's supposed to be really long so we can test the plot shortening functionality as well.",
+  backdrop_path: "/test-backdrop.jpg",
+  genre_ids: [1, 2, 3],
+  original_language: "en",
+  popularity: 7.8,
+  video: false,
+  vote_average: 8.5,
+  vote_count: 100,
+};
 
-jest.mock("react-router-dom", () => ({
-  ...(jest.requireActual("react-router-dom") as any),
-  useNavigate: () => mockedUsedNavigate,
-}));
+describe("Given a MovieCard component", () => {
+  describe("When it receives a movie prop", () => {
+    // Arrange
+    beforeEach(() => {
+      render(
+        <BrowserRouter>
+          <MovieCard movie={mockMovie} />
+        </BrowserRouter>
+      );
+    });
 
-describe("loads and displays the review", () => {
-  const movie: Movie = {
-    adult: false,
-    backdrop_path: "/jBFxXKCrViA88hhO59fDx0Av4P.jpg",
-    genre_ids: [12, 28, 878],
-    id: 11,
-    original_language: "en",
-    original_title: "Star Wars",
-    overview:
-      "Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.",
-    popularity: 84.624,
-    poster_path: "/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg",
-    release_date: "1977-05-25",
-    title: "Star Wars",
-    video: false,
-    vote_average: 8.2,
-    vote_count: 17424,
-  };
+    test("Then it should display the correct movie information", () => {
+      // Act - No explicit act as we're testing the result of the Arrange phase.
 
-  test("The Movie is rendered correctly", () => {
-    render(<MovieCard movie={movie} />);
+      // Assert
+      expect(
+        screen.getByTestId(`movie-card-title-${mockMovie.id}`)
+      ).toHaveTextContent(mockMovie.title);
+      expect(screen.getByText(`Release Date: Feb 2nd 22`)).toBeInTheDocument();
+      expect(
+        screen.getByText(`Plot: ${mockMovie.overview.slice(0, 250)}...`)
+      ).toBeInTheDocument();
+    });
 
-    // DOM Query
-    expect(
-      screen.getByTestId(`movie-card-title-${movie.id}`)
-    ).toHaveTextContent(movie.title);
-  });
-  describe("When the user clicks on the movie card", () => {
-    test("then the router redirects to the correct movie path", () => {
-      render(<MovieCard movie={movie} />);
+    describe("And the movie's plot is longer than 250 characters", () => {
+      test("Then it should shorten the displayed plot text", () => {
+        // Arrange
+        const longPlot = "a".repeat(300);
+        render(
+          <BrowserRouter>
+            <MovieCard movie={{ ...mockMovie, overview: longPlot }} />
+          </BrowserRouter>
+        );
 
-      fireEvent.click(screen.getByTestId(`movie-card-container-${movie.id}`));
+        // Act - No explicit act as we're testing the result of the Arrange phase.
 
-      expect(mockedUsedNavigate).toBeCalledTimes(1);
-      // expect(mockedNavigate).toBeCalledWith(`/movie/${movie.id}`);
+        // Assert
+        expect(
+          screen.getByText(`Plot: ${longPlot.slice(0, 250)}...`)
+        ).toBeInTheDocument();
+      });
     });
   });
 });
