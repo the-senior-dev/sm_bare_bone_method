@@ -9,7 +9,7 @@ import AppContainer from "./components/styled/AppContainer";
 import { Theme, themeList, ThemeName } from "./store/theme";
 
 // redux
-import { store } from "./store/reduxStore/store";
+import { store } from "./store/redux/store";
 import { Provider } from "react-redux";
 
 export default function App() {

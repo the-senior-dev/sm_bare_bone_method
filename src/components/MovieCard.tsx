@@ -7,7 +7,7 @@ import movieApiClient from "../utils/movieApiClient";
 import { Movie } from "../utils/typesApi";
 import MovieCardContainer from "./styled/MovieCardContainer";
 import { DarkModeContext } from "../store/context";
-import { RootState } from "../store/reduxStore/store";
+import { RootState } from "../store/redux/store";
 import { useSelector } from "react-redux";
 
 interface MovieCardProps {

@@ -3,7 +3,7 @@ import Toggle from "react-toggle";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { themeList } from "../store/theme";
-import { ThemeState, toggleTheme } from "../store/reduxStore/themeSlice";
+import { ThemeState, toggleTheme } from "../store/redux/themeSlice";
 
 export default function DarkModeToggle() {
   //const { theme, toggleTheme } = useContext(DarkModeContext);
