@@ -1,13 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+
 import movieApiClient from "../utils/movieApiClient";
 import { Movie } from "../utils/typesApi";
 
 export default function SimpleMovieCard({ movieData }: { movieData: Movie }) {
   const navigate = useNavigate();
 
-  const onCardClick = () => {
+  const onCardClick = (event: any) => {
     navigate(`/movie/${movieData.id}`);
   };
 
@@ -17,6 +18,7 @@ export default function SimpleMovieCard({ movieData }: { movieData: Movie }) {
         src={movieApiClient.buildMoviePosterUrl(movieData.poster_path)}
         height="174"
         onClick={onCardClick}
+        data-testid={`simple-movie-card-${movieData.id}`}
       ></SimpleMovieCardImage>
     </SimpleMovieCardContainer>
   );
