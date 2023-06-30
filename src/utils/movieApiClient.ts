@@ -1,10 +1,4 @@
-import {
-  ApiError,
-  ApiResponse,
-  FullMovieResponse,
-  Movie,
-  MovieReview,
-} from "./typesApi";
+import { ApiError, FullMovieResponse, Movie, MovieReview } from "./typesApi";
 import placeHolder from "../assets/movie-placeholder.png";
 
 // !! ADD YOUR API KEY BELOW !!

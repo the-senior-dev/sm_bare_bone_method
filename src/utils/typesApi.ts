@@ -1,10 +1,3 @@
-export type ApiResponse<T> = {
-  results: T[];
-  page: number;
-  total_results: number;
-  total_pages: number;
-};
-
 export type Movie = {
   adult: boolean;
   original_title: string;

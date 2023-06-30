@@ -11,7 +11,7 @@ export default function MovieReviewList({ movieId }: { movieId: string }) {
   useEffect(() => {
     movieApiClient.getMovieReviewList(movieId).then((data) => {
       if (isApiError(data)) {
-        setFetchError(error);
+        setFetchError(data);
       } else {
         setReviewList(data.results);
       }
@@ -25,7 +25,7 @@ export default function MovieReviewList({ movieId }: { movieId: string }) {
         reviewList?.map((review) => (
           <MovieReviewCard review={review} key={review.id} />
         ))}
-      {error?.message}
+      <p>{error && "An error occurred"}</p>
     </ReviewListContainer>
   );
 }

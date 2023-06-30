@@ -12,4 +12,5 @@ module.exports = {
   setupFiles: ["<rootDir>/src/setupTests.ts"],
   automock: false,
   collectCoverageFrom: ["src/**/*.{ts,tsx}"],
+  coveragePathIgnorePatterns: ["^src/.*.d.ts$", "^src/index.tsx$"],
 };
