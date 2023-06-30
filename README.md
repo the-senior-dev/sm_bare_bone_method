@@ -53,7 +53,7 @@ We provide the starting code for this app so you can jump straight into the acti
 1. The `MainPage` should display a section with the `Upcoming Movies` under the `TrendingNow` section
 2. The style should be the same as the [TrendingNow](src/components/TrendingNow.tsx) component - you can just copy that one.
 
-Use the `Bare Bone Method` to structure your component and data flow before styling. Check out how we do that here. [VIDEO WITH BARE BONE HERE]
+Use the `Bare Bone Method` to structure your component and data flow before styling. [Check out how we do that here](https://community.theseniordev.com/c/software-mastery-2023/sections/33088/lessons/105114).
 
 ##### 💡 Hint: you might need to extend the [movieApiClient] and add a method to fetch a list of the movies upcoming. Check out [the endpoint documentation here](https://developers.themoviedb.org/3/movies/get-upcoming).
 
