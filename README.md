@@ -26,18 +26,25 @@ We provide the starting code for this app so you can jump straight into the acti
 
 ### Getting Started
 
-1. 🔑 You will need an API Key to make the requests to the API. You can get one [here](https://developers.themoviedb.org/3/getting-started/introduction). Add the key to [`movieApiClient.ts`](src/utils/movieApiClient.ts)
-2. Check `package.json` to see the scripts available.
+1. 🔑 You will need an API Key to make the requests to the API. You can get one [here](https://developers.themoviedb.org/3/getting-started/introduction).
+2. Copy the `.env.example` file into a new `.env` file and add your API key there. Your `.env` file should look something like this:
+
+```bash
+API_KEY=affc0edf3f789f9357f1d525ba2cdn23
+```
+
+3. Check `package.json` to see the scripts available.
    1. Run `npm start` to run the app
    2. Run `npm test` to run the unit tests
    3. Run `npm run cy:open` to run the `e2e` tests
-3. [The starting point looks like this](https://bare-bone-starting-point.netlify.app/)
+4. [The starting point looks like this](https://bare-bone-starting-point.netlify.app/)
 
 ### Recommendations
 
 1. Use the [React Dev Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) to inspect the component tree and data flow.
 2. Draw your component breakdown using a tool like [Excalidraw](https://excalidraw.com/).
 3. Use the **[State Architecture Cheat sheet](https://drive.google.com/file/d/1KtUkq7VfOjmAnH0jbrOScYQuI_7NZHCM/view?usp=sharing)** to decide where to place your state.
+4. Write `tests` to maintain a code coverage of more than **60%\*\*** at all times
 
 ---
 
@@ -53,7 +60,15 @@ We provide the starting code for this app so you can jump straight into the acti
 1. The `MainPage` should display a section with the `Upcoming Movies` under the `TrendingNow` section
 2. The style should be the same as the [TrendingNow](src/components/TrendingNow.tsx) component - you can just copy that one.
 
-Use the `Bare Bone Method` to structure your component and data flow before styling. Check out how we do that here. [VIDEO WITH BARE BONE HERE]
+> :bulb: **Tip:** Write `tests` to maintain a code coverage of more than **60%** at all times.
+
+You can check the test coverage by running the following in the terminal:
+
+```bash
+npm run test:coverage
+```
+
+:hammer_and_wrench: Use the `Bare Bone Method` :bone: to structure your component and data flow before styling. :art: [Check out how we do that here](https://community.theseniordev.com/c/software-mastery-2023/sections/33088/lessons/105114).
 
 ##### 💡 Hint: you might need to extend the [movieApiClient] and add a method to fetch a list of the movies upcoming. Check out [the endpoint documentation here](https://developers.themoviedb.org/3/movies/get-upcoming).
 
@@ -97,7 +112,7 @@ Use the `Bare Bone Method` to structure your component and data flow before styl
 
 ![pagination-final](examples/solution_one/pagination-final.png)
 
-##### 💡 Hint: take time to understand where the pagination state should live. You might need to "lift the state" in order to keep your components clean.
+##### 💡 Hint: take time to understand where the pagination state should live. You might need to "lift the state" to keep your components clean.
 
 ##### 💡 Hint: you might need to extend the [movieApiClient] to fetch a certain page of movie results. Check out [the endpoint documentation here](https://developers.themoviedb.org/3/search/search-movies).
 
@@ -303,6 +318,6 @@ export default function DarkModeToggle() {
 
 ### Getting Help
 
-If you have issues with the Action Item, you can ask for help in the [Community](https://community.theseniordev.com/) or in the [Weekly Q&A’s](https://calendar.google.com/calendar/u/0?cid=Y19kbGVoajU1Z2prNXZmYmdoYmxtdDRvN3JyNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t).
+If you have issues with the Action Item, you can ask for help in the [Community](https://community.theseniordev.com/) or in the [Weekly Coaching Calls](https://community.theseniordev.com/c/coaching-calls/?sort=asc).
 
 ### Made with :orange_heart: in Berlin by @theSeniorDev

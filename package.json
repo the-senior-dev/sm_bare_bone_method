@@ -9,10 +9,12 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack serve",
-    "test": "jest --watch",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:dev": "jest --watch",
     "lint": "lint-staged",
-    "cy:run": "cypress run",
-    "cy:open": "cypress open"
+    "cy:run": "npm run start & cypress run",
+    "cy:open": "npm run start & cypress open"
   },
   "repository": {
     "type": "git",
@@ -31,8 +33,11 @@
     "@babel/preset-react": "^7.22.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/isomorphic-fetch": "^0.0.36",
     "@types/jest": "^29.5.2",
     "@types/lodash": "^4.14.195",
+    "@types/node-fetch": "^2.6.4",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "@types/react-router-dom": "^5.3.3",
@@ -42,6 +47,7 @@
     "babel-loader": "^9.1.2",
     "css-loader": "^6.8.1",
     "cypress": "^12.16.0",
+    "dotenv-webpack": "^8.0.1",
     "eslint": "^8.43.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-standard": "^17.1.0",
@@ -55,6 +61,8 @@
     "husky": "^8.0.3",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
+    "jest-fetch-mock": "^3.0.3",
+    "jest-mock-extended": "^3.0.4",
     "lint-staged": "^13.2.3",
     "style-loader": "^3.3.3",
     "ts-jest": "^29.1.0",
@@ -65,6 +73,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "isomorphic-fetch": "^3.0.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "react": "^18.2.0",
