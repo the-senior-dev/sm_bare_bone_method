@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import movieApiClient from "../../utils/movieApiClient";
-import { ApiError, isApiError, MovieReview } from "../../utils/typesApi";
 import MovieReviewCard from "./MovieReviewCard";
 
 export default function MovieReviewList({ movieId }: { movieId: string }) {
@@ -10,7 +9,7 @@ export default function MovieReviewList({ movieId }: { movieId: string }) {
 
   useEffect(() => {
     movieApiClient.getMovieReviewList(movieId).then((data) => {
-      if (isApiError(data)) {
+      if ("message" in data) {
         setFetchError(data);
       } else {
         setReviewList(data.results);

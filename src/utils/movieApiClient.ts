@@ -1,8 +1,4 @@
-import { ApiError, FullMovieResponse, Movie, MovieReview } from "./typesApi";
 import placeHolder from "../assets/movie-placeholder.png";
-
-// !! ADD YOUR API KEY BELOW !!
-const apiKey = "___YOUR_API_KEY_HERE__"; // ADD THE KEY HERE!
 
 const apiUrl = "https://api.themoviedb.org/3";
 
@@ -10,8 +6,10 @@ class ApiClient {
   public apiKey: string;
   public apiUrl: string;
   public imageUrl = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
-  constructor(apiKey: string, apiUrl: string) {
-    this.apiKey = apiKey;
+  constructor(apiUrl: string) {
+    // TODO: SOLID - Dependency Inversion for apiKey
+    if (!process.env.API_KEY) console.warn("API KEY NOT FOUND");
+    this.apiKey = process.env.API_KEY || "";
     this.apiUrl = apiUrl;
   }
 
@@ -105,4 +103,4 @@ class ApiClient {
 }
 
 // The Singleton Pattern (Api Client, Db Client)
-export default new ApiClient(apiKey, apiUrl);
+export default new ApiClient(apiUrl);

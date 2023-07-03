@@ -5,7 +5,6 @@ import { BrowserRouter } from "react-router-dom";
 
 import movieApiClient from "../utils/movieApiClient";
 import TrendingNow from "./TrendingNow";
-import { Movie } from "../utils/typesApi";
 
 jest.mock("../utils/movieApiClient");
 

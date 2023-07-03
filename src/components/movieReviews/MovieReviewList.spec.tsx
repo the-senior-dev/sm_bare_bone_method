@@ -1,11 +1,8 @@
 import React from "react";
 import { render, screen, act, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import userEvent from "@testing-library/user-event";
 import MovieReviewList from "./MovieReviewList";
 import movieApiClient from "../../utils/movieApiClient";
-import { ApiError, MovieReview } from "../../utils/typesApi";
-import { BrowserRouter } from "react-router-dom";
 
 jest.mock("../../utils/movieApiClient", () => ({
   getMovieReviewList: jest.fn(),

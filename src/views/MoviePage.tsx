@@ -4,7 +4,6 @@ import styled from "styled-components";
 import MovieReviewList from "../components/movieReviews/MovieReviewList";
 import PageContainer from "../components/styled/PageContainer";
 import movieApiClient from "../utils/movieApiClient";
-import { ApiError, FullMovieResponse, isApiError } from "../utils/typesApi";
 
 export default function MoviePage() {
   const { id } = useParams() as { id: string };
@@ -14,7 +13,7 @@ export default function MoviePage() {
 
   useEffect(() => {
     movieApiClient.getMovieDetail(id).then((data) => {
-      if (isApiError(data)) {
+      if (data && "message" in data) {
         setFetchError(error);
       } else {
         setMovieData(data);

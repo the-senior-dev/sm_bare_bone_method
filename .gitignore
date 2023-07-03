@@ -1,3 +1,7 @@
 node_modules
 build
 coverage
+
+
+# Ignore .env files for production
+.env

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import movieApiClient from "../utils/movieApiClient";
-import { ApiError, isApiError, Movie } from "../utils/typesApi";
 import SimpleMovieCard from "./SimpleMovieCard";
 
 export default function TrendingNow() {
@@ -11,7 +10,7 @@ export default function TrendingNow() {
 
   useEffect(() => {
     movieApiClient.getMovieListNowPlaying().then((data) => {
-      if (isApiError(data)) {
+      if ("message" in data) {
         setFetchError({ message: data.message, isError: true });
       } else {
         setMovieListTrending(data.results);

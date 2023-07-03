@@ -1,12 +1,11 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { BrowserRouter, useNavigate } from "react-router-dom";
 import "@testing-library/jest-dom/extend-expect";
 
 import SimpleMovieCard from "./SimpleMovieCard";
 import movieApiClient from "../utils/movieApiClient";
-import { Movie } from "../utils/typesApi";
-import { BrowserRouter, useNavigate } from "react-router-dom";
 
 jest.mock("../utils/movieApiClient", () => ({
   buildMoviePosterUrl: jest.fn(),
