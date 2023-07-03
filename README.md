@@ -44,7 +44,7 @@ API_KEY=affc0edf3f789f9357f1d525ba2cdn23
 1. Use the [React Dev Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) to inspect the component tree and data flow.
 2. Draw your component breakdown using a tool like [Excalidraw](https://excalidraw.com/).
 3. Use the **[State Architecture Cheat sheet](https://drive.google.com/file/d/1KtUkq7VfOjmAnH0jbrOScYQuI_7NZHCM/view?usp=sharing)** to decide where to place your state.
-4. Write `tests` to maintain a code coverage of more than **60%\*\*** at all times
+4. Write `tests` to maintain a code coverage of more than **60%** at all times
 
 ---
 
@@ -60,17 +60,11 @@ API_KEY=affc0edf3f789f9357f1d525ba2cdn23
 1. The `MainPage` should display a section with the `Upcoming Movies` under the `TrendingNow` section
 2. The style should be the same as the [TrendingNow](src/components/TrendingNow.tsx) component - you can just copy that one.
 
-> :bulb: **Tip:** Write `tests` to maintain a code coverage of more than **60%** at all times.
-
-You can check the test coverage by running the following in the terminal:
-
-```bash
-npm run test:coverage
-```
+> :bulb: **Tip:** Write `tests` to maintain a code coverage of more than **60%** at all times. You can check the test coverage by running the following in the terminal: **npm run test:coverage**.
 
 :hammer_and_wrench: Use the `Bare Bone Method` :bone: to structure your component and data flow before styling. :art: [Check out how we do that here](https://community.theseniordev.com/c/software-mastery-2023/sections/33088/lessons/105114).
 
-##### 💡 Hint: you might need to extend the [movieApiClient] and add a method to fetch a list of the movies upcoming. Check out [the endpoint documentation here](https://developers.themoviedb.org/3/movies/get-upcoming).
+##### 💡 Hint: you might need to extend the [movieApiClient](src/utils/movieApiClient.ts) and add a method to fetch a list of the movies upcoming. Check out [the endpoint documentation here](https://developers.themoviedb.org/3/movies/get-upcoming).
 
 ##### 💡 Hint: you can reuse the same component if you "lift state", extract the business logic and isolate the **rendering** into a stateless component.
 
@@ -84,8 +78,8 @@ npm run test:coverage
 
 #### Solution: Task 1.2
 
-- **🖥️ [VIDEO SOLUTION - Separation of concerns](https://www.loom.com/share/09fd272da95845d39d6736c12e14c025)**
-- **🗂️ [CODE SOLUTION - Separation of concerns](https://github.com/the-senior-dev/sm_bare_bone_method/tree/feature/solution-one-extension)**
+- **🖥️ [VIDEO SOLUTION - Separation of Concerns](https://www.loom.com/share/09fd272da95845d39d6736c12e14c025)**
+- **🗂️ [CODE SOLUTION - Separation of Concerns]** - `git checkout feature/solution-one-extension`
 
 </details>
 
@@ -105,6 +99,8 @@ npm run test:coverage
 
 ![search-bar-final](examples/solution_one/search-final.png)
 
+> :bulb: **Tip:** Write `tests` to maintain a code coverage of more than **60%** at all times. You can check the test coverage by running the following in the terminal: **npm run test:coverage**.
+
 2.2. Add a `Pagination` for the list of movies:
 
 - the `pagination` should have a first, next, previous, and last `button`
@@ -114,7 +110,9 @@ npm run test:coverage
 
 ##### 💡 Hint: take time to understand where the pagination state should live. You might need to "lift the state" to keep your components clean.
 
-##### 💡 Hint: you might need to extend the [movieApiClient] to fetch a certain page of movie results. Check out [the endpoint documentation here](https://developers.themoviedb.org/3/search/search-movies).
+##### 💡 Hint: you might need to extend the [movieApiClient](src/utils/movieApiClient.ts) to fetch a certain page of movie results. Check out [the endpoint documentation here](https://developers.themoviedb.org/3/search/search-movies).
+
+##### 💡 Hint: Write `tests` to maintain a code coverage of more than **60%** at all times. You can check the test coverage by running the following in the terminal: **npm **run test:\*\* **coverage**.
 
 #### Solution: Task 2 - Add Search & Pagination
 
@@ -124,7 +122,7 @@ npm run test:coverage
 - **🖥️ [VIDEO SOLUTION - 2.3 State Implementation](https://www.loom.com/share/0fca5c23551a4e0d8656c67272e6b9a5)**
 - **🖥️ [VIDEO SOLUTION - 2.4 Adding Functionality](https://www.loom.com/share/aa6f38b850994db0bebc07e62be2f812)**
 - **🖥️ [VIDEO SOLUTION - 2.5 App Overview](https://www.loom.com/share/9f5f83d3699b45719d2272881c384b8d)**
-- **🗂️ [CODE SOLUTION - Adding Search](https://github.com/the-senior-dev/sm_bare_bone_method/tree/feature/solution-two)**
+- **🗂️ [CODE SOLUTION - Separation of Concerns]** - `git checkout feature/solution-two`
 
 #### Bonus: Persisting state on page change using query params
 
@@ -157,7 +155,7 @@ npm run test:coverage
 
 #### Optional Acceptance Criteria:
 
-- the `dark mode` switch should pickup the settings from local storage if it was configured previously
+- the `dark mode` switch should pick-up the settings from local storage if it was configured previously
 - use `x-state` instead of `useState` for the theme switch
 
 #### Solution: Task 3 - Add a Dark Mode Switch
