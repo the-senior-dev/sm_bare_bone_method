@@ -1,14 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { PrimaryButton } from "./styled";
 import backgroundImage from "../assets/search-header.png";
 
-export default function SearchBar() {
+interface SearchBarProps {
+  setSearchText: (text: string) => void;
+}
+
+export default function SearchBar({ setSearchText }: SearchBarProps) {
+  const [inputText, setInputText] = useState("Star Wars");
+
   return (
     <SearchBarContainer>
       <SearchBarTitle>Welcome.</SearchBarTitle>
       <SearchBarSubTitle>
         Millions of movies, TV shows and people to discover. Explore now.
       </SearchBarSubTitle>
+      <SearchWrapper>
+        <SearchInput
+          data-testid="input-search"
+          value={inputText}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setInputText(event.target.value)
+          }
+        ></SearchInput>
+        <PrimaryButton
+          data-testid="btn-search"
+          onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
+            setSearchText(inputText)
+          }
+        >
+          Search
+        </PrimaryButton>
+      </SearchWrapper>
     </SearchBarContainer>
   );
 }
@@ -43,7 +67,7 @@ const SearchBarSubTitle = styled.h3`
 `;
 
 // NOTE: You can use the components bellow to go quicker
-/** 
+
 const SearchInput = styled.input`
   display: flex;
   border-radius: 0px;
@@ -58,28 +82,9 @@ const SearchInput = styled.input`
   font-weight: 300;
 `;
 
-const SearchButton = styled.button`
-  height: 40px;
-  display: flex;
-  width: 200px;
-  background-color: #0984e3;
-  border-color: #0984e3;
-  color: white;
-  font-weight: 700;
-  font-size: 1.2rem;
-  justify-content: center;
-  align-items: center;
-  border-width: 0px;
-  &:hover {
-    background-color: #0984e3;
-    cursor: pointer;
-  }
-`;
-
 const SearchWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: flex-end;
 `;
-**/

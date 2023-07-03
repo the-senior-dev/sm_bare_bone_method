@@ -1,25 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import movieApiClient from "../utils/movieApiClient";
+
 import MovieCard from "./MovieCard";
 
-export default function MovieList() {
-  const [movieList, setMovieList] = useState<Movie[]>([]);
-  const [error, setFetchError] = useState<ApiError | null>();
+interface MovieListProps {
+  movieList?: Movie[];
+  error?: ApiError | null;
+}
 
-  async function getMovies() {
-    const response = await movieApiClient.getMovieList();
-    if ("message" in response) {
-      setFetchError(response);
-    } else {
-      setMovieList(response.results);
-    }
-  }
-
-  useEffect(() => {
-    getMovies();
-  }, []);
-
+export default function MovieList({ movieList, error }: MovieListProps) {
   return (
     <MovieListContainer>
       <MovieCardListWrapper>
