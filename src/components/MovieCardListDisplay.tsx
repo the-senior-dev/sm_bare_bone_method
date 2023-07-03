@@ -1,16 +1,16 @@
 import React from "react";
-import { ApiError, Movie } from "../utils/typesApi";
+
 import SimpleMovieCard from "./SimpleMovieCard";
 import { MovieSliderContainer } from "./styled";
 import SectionHeading from "./styled/SectionHeading";
 
 interface MovieListCardDisplayProps {
-  movieList: Movie[] | null | undefined;
-  error: ApiError | null | undefined;
+  movieList?: Movie[];
+  error?: ApiError | null;
   headingText: string;
 }
 
-export default function MovieListCardDisplay({
+export default function MovieCardListDisplay({
   movieList,
   error,
   headingText,

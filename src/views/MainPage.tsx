@@ -6,7 +6,7 @@ import SearchBar from "../components/SearchBar";
 import { PageContainer } from "../components/styled";
 import TrendingNow from "../components/TrendingNow";
 import Upcoming from "../components/Upcoming";
-import { ApiError, isApiError, Movie } from "../utils/typesApi";
+
 import movieApiClient from "../utils/movieApiClient";
 
 export default function MainPage() {
@@ -23,8 +23,11 @@ export default function MainPage() {
 
   async function getMovies() {
     const response = await movieApiClient.getMovieList(searchText, currentPage);
-    if (isApiError(response)) {
-      setFetchError(response);
+    if ("message" in response) {
+      setFetchError({
+        message: "An error ocurred while fetching the movies",
+        isError: true,
+      });
     } else {
       setMovieList(response.results);
       setTotalPages(response.total_pages);

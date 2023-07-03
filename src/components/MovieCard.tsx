@@ -4,7 +4,7 @@ import moment from "moment";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import movieApiClient from "../utils/movieApiClient";
-import { Movie } from "../utils/typesApi";
+
 import MovieCardContainer from "./styled/MovieCardContainer";
 import { DarkModeContext } from "../store/context";
 

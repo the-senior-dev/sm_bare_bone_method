@@ -21,12 +21,20 @@ export default function SearchBar({ setSearchText }: SearchBarProps) {
       </SearchBarSubTitle>
       <SearchWrapper>
         <SearchInput
-          color={context.theme.foreground}
           backgroundColor={context.theme.background}
+          color={context.theme.foreground}
+          data-testid="input-search"
           value={inputText}
-          onChange={(event) => setInputText(event.target.value)}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setInputText(event.target.value)
+          }
         ></SearchInput>
-        <PrimaryButton onClick={() => setSearchText(inputText)}>
+        <PrimaryButton
+          data-testid="btn-search"
+          onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
+            setSearchText(inputText)
+          }
+        >
           Search
         </PrimaryButton>
       </SearchWrapper>

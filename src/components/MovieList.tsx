@@ -1,20 +1,21 @@
 import React from "react";
 import styled from "styled-components";
-import { ApiError, Movie } from "../utils/typesApi";
+
 import MovieCard from "./MovieCard";
 
 interface MovieListProps {
-  movieList: Movie[];
-  error: ApiError | null | undefined;
+  movieList?: Movie[];
+  error?: ApiError | null;
 }
 
 export default function MovieList({ movieList, error }: MovieListProps) {
   return (
     <MovieListContainer>
       <MovieCardListWrapper>
-        {movieList.map((movie) => {
-          return <MovieCard movie={movie} key={movie.id} />;
-        })}
+        {movieList &&
+          movieList.map((movie) => {
+            return <MovieCard movie={movie} key={movie.id} />;
+          })}
       </MovieCardListWrapper>
       {error?.message}
     </MovieListContainer>

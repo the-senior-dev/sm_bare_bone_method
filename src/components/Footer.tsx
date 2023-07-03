@@ -6,14 +6,14 @@ export default function Footer() {
   return (
     <FooterContainer>
       <div>
-        <FooterLink href="/">Youtube</FooterLink>
-        <FooterLink href="/">LinkedIn</FooterLink>
-        <FooterLink href="/">Website</FooterLink>
-        <FooterLink href="/">Dev.to</FooterLink>
-        <FooterLink href="/">Medium</FooterLink>
+        <FooterLink href="https://www.youtube.com">Youtube</FooterLink>
+        <FooterLink href="https://www.linkedin.com">LinkedIn</FooterLink>
+        <FooterLink href="https://www.example.com">Website</FooterLink>
+        <FooterLink href="https://dev.to">Dev.to</FooterLink>
+        <FooterLink href="https://www.medium.com">Medium</FooterLink>
       </div>
-      <FooterLogo src={logoWhite} alt="the-senior-dev"></FooterLogo>© 1990-
-      {new Date().getFullYear()} by theSeniorDev.com
+      <FooterLogo src={logoWhite}></FooterLogo>© {new Date().getFullYear()} by
+      theSeniorDev.com
     </FooterContainer>
   );
 }
