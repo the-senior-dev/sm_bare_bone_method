@@ -3,19 +3,19 @@ import styled from "styled-components";
 import { DarkModeContext } from "../../store/context";
 
 interface MovieCardContainerProps {
-  backgroundColor: string;
+  bkgColor: string;
 }
 
 const MovieCardContainerRaw = styled.div<MovieCardContainerProps>`
   display: flex;
   width: calc(50% - 20px);
-  border: solid 1px ${(props) => props.backgroundColor};
+  border: solid 1px ${(props) => props.bkgColor};
   margin-right: 10px;
   margin-left: 10px;
   margin-bottom: 4px;
   box-sizing: border-box;
   height: 240px;
-  background-color: ${(props) => props.backgroundColor};
+  background-color: ${(props) => props.bkgColor};
   &:hover {
     // background-color: #b2bec3;
     cursor: pointer;
@@ -32,7 +32,7 @@ export default function MovieCardContainer({
   return (
     <MovieCardContainerRaw
       {...props}
-      backgroundColor={context.theme.background_secondary}
+      bkgColor={context.theme.background_secondary}
     >
       {children}
     </MovieCardContainerRaw>
