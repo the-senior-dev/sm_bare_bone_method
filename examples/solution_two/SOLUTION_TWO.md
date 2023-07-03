@@ -10,7 +10,6 @@
 4. Modify the api call to include both the search and page parameter
 5. Style the components, fix small bugs
 
-
 #### Bug fixes:
 1. Search and pagination state not conserved on back button
 2. Search and pagination should reset when we search for a new movie

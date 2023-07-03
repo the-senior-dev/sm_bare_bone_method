@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 
 import movieApiClient from "../utils/movieApiClient";
-import SimpleMovieCard from "./SimpleMovieCard";
+import MovieCardListDisplay from "./MovieCardListDisplay";
 
 export default function TrendingNow() {
-  const [movieListTrending, setMovieListTrending] = useState<Movie[] | null>();
+  const [movieListTrending, setMovieListTrending] = useState<Movie[]>();
   const [error, setFetchError] = useState<ApiError | null>();
 
   useEffect(() => {
@@ -19,30 +18,10 @@ export default function TrendingNow() {
   }, []);
 
   return (
-    <div>
-      <SectionHeading>Trending Now</SectionHeading>
-      <TrendingContainer>
-        {!error &&
-          movieListTrending?.map((mov) => (
-            <SimpleMovieCard movieData={mov} key={mov.id} />
-          ))}
-      </TrendingContainer>
-      {error && <p>{error?.message}</p>}
-    </div>
+    <MovieCardListDisplay
+      movieList={movieListTrending}
+      headingText={"Trending Now"}
+      error={error}
+    />
   );
 }
-
-const SectionHeading = styled.h1`
-  width: 100%;
-  text-align: left;
-  padding-left: 10px;
-`;
-
-const TrendingContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding-left: 10px;
-  padding-right: 10px;
-`;

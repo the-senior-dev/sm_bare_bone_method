@@ -1,14 +1,43 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
+import chroma from "chroma-js";
+import PrimaryButton from "../components/styled/PrimaryButton";
+import { DarkModeContext } from "../store/context";
 import backgroundImage from "../assets/search-header.png";
 
-export default function SearchBar() {
+interface SearchBarProps {
+  setSearchText: (text: string) => void;
+}
+
+export default function SearchBar({ setSearchText }: SearchBarProps) {
+  const [inputText, setInputText] = useState("Star Wars");
+  const context = useContext(DarkModeContext);
+
   return (
     <SearchBarContainer>
-      <SearchBarTitle>Welcome.</SearchBarTitle>
-      <SearchBarSubTitle>
+      <SearchBarTitle color={"#dfe6e9"}>Welcome.</SearchBarTitle>
+      <SearchBarSubTitle color={"#dfe6e9"}>
         Millions of movies, TV shows and people to discover. Explore now.
       </SearchBarSubTitle>
+      <SearchWrapper>
+        <SearchInput
+          backgroundColor={context.theme.background}
+          color={context.theme.foreground}
+          data-testid="input-search"
+          value={inputText}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setInputText(event.target.value)
+          }
+        ></SearchInput>
+        <PrimaryButton
+          data-testid="btn-search"
+          onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
+            setSearchText(inputText)
+          }
+        >
+          Search
+        </PrimaryButton>
+      </SearchWrapper>
     </SearchBarContainer>
   );
 }
@@ -30,7 +59,7 @@ const SearchBarTitle = styled.h2`
   font-size: 3em;
   font-weight: 700;
   line-height: 1;
-  color: white;
+  color: ${(props) => props.color};
   margin-bottom: 10px;
 `;
 
@@ -38,41 +67,34 @@ const SearchBarSubTitle = styled.h3`
   font-size: 2em;
   font-weight: 600;
   margin: 0;
-  color: white;
+  color: ${(props) => props.color};
   margin-bottom: 40px;
 `;
 
 // NOTE: You can use the components bellow to go quicker
-/** 
-const SearchInput = styled.input`
+
+interface SearchInputProps {
+  backgroundColor: string;
+  color: string;
+}
+
+const SearchInput = styled.input<SearchInputProps>`
   display: flex;
   border-radius: 0px;
-  border-width: 0px;
+  border-width: 1px;
   height: 40px;
   flex-grow: 1;
   padding: 0px;
   margin-right: 10px;
   padding-left: 10px;
   font-size: 1rem;
-  color: #636e72;
+  color: ${(props) => props.color};
   font-weight: 300;
-`;
-
-const SearchButton = styled.button`
-  height: 40px;
-  display: flex;
-  width: 200px;
-  background-color: #0984e3;
-  border-color: #0984e3;
-  color: white;
-  font-weight: 700;
-  font-size: 1.2rem;
-  justify-content: center;
-  align-items: center;
-  border-width: 0px;
-  &:hover {
-    background-color: #0984e3;
-    cursor: pointer;
+  background-color: ${(props) => props.backgroundColor};
+  border-color: ${(props) => props.color};
+  :focus-visible {
+    outline: none;
+    border-color: ${chroma("#6c5ce7").saturate().hex()};
   }
 `;
 
@@ -82,4 +104,3 @@ const SearchWrapper = styled.div`
   justify-content: center;
   align-items: flex-end;
 `;
-**/

@@ -27,11 +27,13 @@ const FooterLogo = styled.img`
 const FooterLink = styled.a`
   height: 60px;
   margin: 10px;
+  color: #dfe6e9;
+  text-decoration: none;
 `;
 
 const FooterContainer = styled.div`
   width: 100%;
-  background-color: #2d3436;
+  background-color: #202426;
   color: white;
   display: flex;
   align-items: center;

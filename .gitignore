@@ -5,3 +5,4 @@ coverage
 
 # Ignore .env files for production
 .env
+.DS_Store
