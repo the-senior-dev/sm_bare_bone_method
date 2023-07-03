@@ -78,7 +78,7 @@ npm run test:coverage
 
 - **📝 [Step by Step Instructions](examples/solution_one/SOLUTION_ONE.md)**
 - **🖥️ [VIDEO SOLUTION - Adding the Upcoming Movies](https://www.loom.com/share/670bb6de39b44d6d937f937949698b6f)**
-- **🗂️ [CODE SOLUTION - Adding the Upcoming Movies](https://github.com/the-senior-dev/sm_bare_bone_method/tree/feature/solution-one)**
+- **🗂️ [CODE SOLUTION - Adding the Upcoming Movies]** - `git checkout feature/solution-one`
 
 #### 1.2 [PROFICIENT][BONUS] Refactor and apply `Separation of Concerns`
 
