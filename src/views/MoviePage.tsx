@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import MovieReviewList from "../components/movieReviews/MovieReviewList";
-import PageContainer from "../components/styled/PageContainer";
+import { PageContainer } from "../components/styled";
 import movieApiClient from "../utils/movieApiClient";
 
 export default function MoviePage() {

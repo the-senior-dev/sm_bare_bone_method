@@ -1,28 +1,29 @@
 import React, { useEffect, useState } from "react";
 import movieApiClient from "../utils/movieApiClient";
+
 import SimpleMovieCard from "./SimpleMovieCard";
 import { MovieSliderContainer, SectionHeading } from "./styled";
 
-export default function TrendingNow() {
-  const [movieListTrending, setMovieListTrending] = useState<Movie[] | null>();
+export default function Upcoming() {
+  const [movieListUpcoming, setMovieListUpcoming] = useState<Movie[] | null>();
   const [error, setFetchError] = useState<ApiError | null>();
 
   useEffect(() => {
-    movieApiClient.getMovieListNowPlaying().then((data) => {
+    movieApiClient.getMovieListUpcoming().then((data) => {
       if ("message" in data) {
-        setFetchError({ message: data.message, isError: true });
+        setFetchError(data);
       } else {
-        setMovieListTrending(data.results);
+        setMovieListUpcoming(data.results);
       }
     });
   }, []);
 
   return (
     <div>
-      <SectionHeading>Trending Now</SectionHeading>
+      <SectionHeading>Upcoming</SectionHeading>
       <MovieSliderContainer>
         {!error &&
-          movieListTrending?.map((mov) => (
+          movieListUpcoming?.map((mov) => (
             <SimpleMovieCard movieData={mov} key={mov.id} />
           ))}
       </MovieSliderContainer>
