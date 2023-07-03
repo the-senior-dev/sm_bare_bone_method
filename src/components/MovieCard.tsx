@@ -4,7 +4,6 @@ import moment from "moment";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import movieApiClient from "../utils/movieApiClient";
-import { Movie } from "../utils/typesApi";
 
 interface MovieCardProps {
   movie: Movie;

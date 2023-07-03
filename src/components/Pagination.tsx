@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { PrimaryButton } from "./styled";
 
-interface PaginationProps {
+export interface PaginationProps {
   currentPage: number;
   setCurrentPage: (page: number) => void;
   lastPage: number;
@@ -16,12 +16,14 @@ export default function Pagination({
   return (
     <PaginationContainer>
       <PrimaryButton
+        data-testid="btn-first"
         disabled={currentPage === 1}
         onClick={() => setCurrentPage(1)}
       >
         first
       </PrimaryButton>
       <PrimaryButton
+        data-testid="btn-previous"
         disabled={currentPage === 1}
         onClick={() => setCurrentPage(currentPage - 1)}
       >
@@ -29,12 +31,14 @@ export default function Pagination({
       </PrimaryButton>
       <PaginationNumber>{currentPage}</PaginationNumber>
       <PrimaryButton
+        data-testid="btn-next"
         disabled={currentPage === lastPage}
         onClick={() => setCurrentPage(currentPage + 1)}
       >
         next
       </PrimaryButton>
       <PrimaryButton
+        data-testid="btn-last"
         disabled={currentPage === lastPage}
         onClick={() => setCurrentPage(lastPage)}
       >

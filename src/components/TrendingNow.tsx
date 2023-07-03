@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
+
 import movieApiClient from "../utils/movieApiClient";
-import { ApiError, isApiError, Movie } from "../utils/typesApi";
-import MovieListCardDisplay from "./MovieCardListDisplay";
+import MovieCardListDisplay from "./MovieCardListDisplay";
 
 export default function TrendingNow() {
-  const [movieListTrending, setMovieListTrending] = useState<Movie[] | null>();
+  const [movieListTrending, setMovieListTrending] = useState<Movie[]>();
   const [error, setFetchError] = useState<ApiError | null>();
 
   useEffect(() => {
     movieApiClient.getMovieListNowPlaying().then((data) => {
-      if (isApiError(data)) {
-        setFetchError(data);
+      if ("message" in data) {
+        setFetchError({ message: data.message, isError: true });
       } else {
         setMovieListTrending(data.results);
       }
@@ -18,7 +18,7 @@ export default function TrendingNow() {
   }, []);
 
   return (
-    <MovieListCardDisplay
+    <MovieCardListDisplay
       movieList={movieListTrending}
       headingText={"Trending Now"}
       error={error}
