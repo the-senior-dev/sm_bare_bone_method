@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import movieApiClient from "../utils/movieApiClient";
-import { ApiError, isApiError, Movie } from "../utils/typesApi";
 import MovieCard from "./MovieCard";
 
 export default function MovieList() {
@@ -10,7 +9,7 @@ export default function MovieList() {
 
   async function getMovies() {
     const response = await movieApiClient.getMovieList();
-    if (isApiError(response)) {
+    if ("message" in response) {
       setFetchError(response);
     } else {
       setMovieList(response.results);
@@ -24,9 +23,10 @@ export default function MovieList() {
   return (
     <MovieListContainer>
       <MovieCardListWrapper>
-        {movieList.map((movie) => {
-          return <MovieCard movie={movie} key={movie.id} />;
-        })}
+        {movieList &&
+          movieList.map((movie) => {
+            return <MovieCard movie={movie} key={movie.id} />;
+          })}
       </MovieCardListWrapper>
       {error?.message}
     </MovieListContainer>
