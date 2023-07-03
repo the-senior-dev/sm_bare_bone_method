@@ -8,7 +8,6 @@ class ApiClient {
   public imageUrl = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
   constructor(apiUrl: string) {
     // TODO: SOLID - Dependency Inversion for apiKey
-    if (!process.env.API_KEY) console.warn("API KEY NOT FOUND");
     this.apiKey = process.env.API_KEY || "";
     this.apiUrl = apiUrl;
   }
