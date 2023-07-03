@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import movieApiClient from "../utils/movieApiClient";
 
-import SimpleMovieCard from "./SimpleMovieCard";
-import { MovieSliderContainer, SectionHeading } from "./styled";
+import MovieCardListDisplay from "./MovieCardListDisplay";
 
 export default function Upcoming() {
-  const [movieListUpcoming, setMovieListUpcoming] = useState<Movie[] | null>();
-  const [error, setFetchError] = useState<ApiError | null>();
+  const [movieListUpcoming, setMovieListUpcoming] = useState<Movie[]>();
+  const [error, setFetchError] = useState<ApiError | null>(null);
 
   useEffect(() => {
     movieApiClient.getMovieListUpcoming().then((data) => {
@@ -19,15 +18,10 @@ export default function Upcoming() {
   }, []);
 
   return (
-    <div>
-      <SectionHeading>Upcoming</SectionHeading>
-      <MovieSliderContainer>
-        {!error &&
-          movieListUpcoming?.map((mov) => (
-            <SimpleMovieCard movieData={mov} key={mov.id} />
-          ))}
-      </MovieSliderContainer>
-      <p>{error?.message}</p>
-    </div>
+    <MovieCardListDisplay
+      movieList={movieListUpcoming}
+      headingText={"Trending Now"}
+      error={error}
+    />
   );
 }

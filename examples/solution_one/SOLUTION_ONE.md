@@ -23,3 +23,4 @@
 1. Create a movie card display component with the same jsx
 2. Pass all the dynamic parts as props: movieList, error, heading
 3. Replace it in the `Upcoming` and `Trending` now components
+4. Write tests for the new component
